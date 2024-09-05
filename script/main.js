@@ -1,10 +1,27 @@
-const api = "https://narutodb.xyz/api/"
+const apiNarutoBestias = "https://narutodb.xyz/api/tailed-beast"
 
-fetch(api+"tailed-beast")
-    .then(response => response.json())
-    .then(data => {
-        let arrayBestias = data.tailedBeasts
-        for (let i = 0; i < arrayBestias.length; i++) {
-       console.log(arrayBestias[i].images);}
+const {createApp} = Vue
+
+const app = createApp({
+   data(){
+       return{
+        arrayBestias: []
+       }
+   },
+   created(){
+
+   },
+   methods:{
+    traerData(apiNarutoBestias){
+        fetch(apiNarutoBestias).then(response => response.json())
+          .then(data => {
+            this.arrayBestias = data.tailedBeasts
+            console.log(this.arrayBestias)
+          })
+        
+    }
+   },
+   computed:{
        
-    })
+   }
+}).mount('#app')
