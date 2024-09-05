@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clanes de Naruto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Characters</a>
+                    <a class="nav-link" href="#">Clans</a>
+                    <a class="nav-link" href="#">Villages</a>
+                    <a class="nav-link" href="#">Stats</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div id="app" class="container">
+    <a href="index.html" class="braian-title">Clans Naruto BACK</a> 
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center" v-for="clan in clans" :key="clan.id">
+            <div class="braian-card">
+                <div class="braian-card-body">
+                    <h5 class="card-title">{{ clan.name }}</h5>
+                    <p class="card-text">{{ clan.shortHistory }}</p>
+                    <button class="btn braian-btn-custom" @click="fetchClanInfo(clan)">Mostrar Información</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="braian-modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Información del Clan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nombre:</strong> {{ selectedClan.name }}</p>
+                    <p><strong>Historia:</strong> {{ selectedClan.history }}</p>
+                    <p><strong>Habilidades:</strong> {{ selectedClan.abilities }}</p>
+                    <p><strong>Miembros destacados:</strong> {{ selectedClan.importantMembers }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer d-flex justify-content-around bg-dark-subtle">
+    <h3>Grupo 06 - CoHort RAPPI V</h3>
+</footer>
+
+<script src="../script/clans.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
