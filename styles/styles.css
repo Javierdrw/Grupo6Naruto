@@ -16,3 +16,62 @@ main{
 footer{
     min-height: 10dvh;
 }
+
+
+body {
+    background-image: url('https://wallpapercave.com/wp/wp8617732.jpg');
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center; 
+}
+.braian-card {
+    margin: 15px;
+    cursor: pointer;
+    background-image: url('https://previews.123rf.com/images/tomo00/tomo001407/tomo00140700166/29822958-patr%C3%B3n-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg'); 
+    background-size: cover; 
+    color: black; 
+    font-weight: bold; 
+    border: 2px solid red; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+    width: 400px; 
+    height: 250px;
+}
+.braian-card-body {
+    background-color: rgba(255, 255, 255, 0.7); 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+}
+.braian-btn-custom {
+    background-color: red; 
+    color: white; 
+}
+.braian-modal-content {
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg'); /* Nueva URL de la imagen */
+    background-size: cover; 
+    color: black; 
+    font-weight: bold; 
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5); 
+}
+.braian-modal-content p, 
+.braian-modal-content h5 {
+    color: orange; 
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+.braian-title, .braian-back-button {
+    text-align: center; 
+    margin: 20px 0; 
+    font-size: 2em; 
+    font-weight: bold; 
+    color: orange; 
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    text-decoration: none; 
+}
+footer {
+    padding: 20px 0;
+    color: white; 
+    text-align: center;
+}
