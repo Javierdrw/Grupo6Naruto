@@ -17,6 +17,10 @@ footer{
     min-height: 10dvh;
 }
 
+.tamaño{
+    width: 200px;
+    height: 200px;
+}
 
 body {
     /* background-image: url('https://wallpapercave.com/wp/wp8617732.jpg'); */
