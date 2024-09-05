@@ -31,12 +31,12 @@
     </header>
 
     <!----------------------------------Main-------------------------------------->
-    <main class="d-flex  flex-column">
+    <main class="d-flex  flex-column" id="app">
         <!-- Carrusel -->
-            <div id="carouselExampleInterval" v-for="carrusel in carrusels" class="carousel slide container-fluid" data-bs-ride="carousel">
+            <div id="carouselExampleInterval" v-for="carrusel in arrayBestias" class="carousel slide container-fluid" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active" data-bs-interval="1000">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img :src="carrusel.images" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item" data-bs-interval="2000">
                     <img src="..." class="d-block w-100" alt="...">
