@@ -17,6 +17,11 @@ footer{
     min-height: 10dvh;
 }
 
+.tamaño{
+    width: 200px;
+    height: 200px;
+}
+
 .img-caru-ja {
     width: 85%; 
     height: 40vh; 
@@ -77,4 +82,9 @@ footer {
     padding: 20px 0;
     color: white; 
     text-align: center;
+}
+
+.main-juanpablo{
+    display: flex;
+    justify-content: center;
 }
