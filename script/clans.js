@@ -1,6 +1,9 @@
+let titulop = document.title
+
 new Vue({
     el: '#app',
     data: {
+        titulo: titulop,
         clans: [
             { id: 1, name: 'Uchiha', shortHistory: 'Conocidos por su Sharingan.', history: 'Los Uchiha son conocidos por su Sharingan, con una larga rivalidad con los Senju y la tragedia de la masacre de su clan a manos de Itachi Uchiha.', abilities: 'Sharingan, genjutsu, ninjutsu.', importantMembers: 'Itachi Uchiha, Sasuke Uchiha.' },
             { id: 2, name: 'Senju', shortHistory: 'Fundadores de Konoha.', history: 'Los Senju son uno de los clanes fundadores de Konoha, conocidos por su gran chakra y habilidades en ninjutsu, simbolizados por Hashirama Senju.', abilities: 'Gran chakra, ninjutsu poderoso.', importantMembers: 'Hashirama Senju, Tobirama Senju.' },

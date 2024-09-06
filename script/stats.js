@@ -1,28 +1,22 @@
 const app = Vue.createApp({
-  data() {
-    return {
-      characters: [],
-      tallest: null,
-      heaviest: null,
-      oldest: null,
-      maleCount: 0,
-      femaleCount: 0,
-      loading: true,
-    };
-  },
-  computed: {
-    totalCharacters() {
-      return this.maleCount + this.femaleCount;
-    },
-  },
-  mounted() {
-    this.fetchAllCharacters();
-  },
-  methods: {
-    async fetchAllCharacters() {
-      const apiPersonajesBase = "https://narutodb.xyz/api/character/";
-      const batchSize = 50; // Limita las solicitudes simultáneas
-      let promises = [];
+      data() {
+        return {
+          characters: [],
+          tallest: null,
+          heaviest: null,
+          oldest: null,
+          maleCount: 0,
+          femaleCount: 0,
+          loading: true,
+        };
+      },
+      mounted() {
+        this.fetchAllCharacters();
+      },
+      methods: {
+        fetchAllCharacters() {
+          const apiPersonajesBase = "https://narutodb.xyz/api/character/";
+          const promises = [];
 
       for (let i = 0; i < 1431; i++) {
         const apiPersonajes = `${apiPersonajesBase}${i}`;

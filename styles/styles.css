@@ -22,6 +22,10 @@ footer{
     height: 200px;
 }
 
+.img-caru-ja {
+    width: 85%; 
+    height: 40vh; 
+}
 body {
     /* background-image: url('https://wallpapercave.com/wp/wp8617732.jpg'); */
     background-size: cover; 
