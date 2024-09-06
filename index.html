@@ -11,7 +11,7 @@
 <body >
     <!----------------------------------Header-------------------------------------->
     <header >
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg ">
           <div class="container-fluid">
             <a class="navbar-brand " href="#"><img class="col-sm-4 col-6 col-lg-2" src="./assets/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,51 +32,65 @@
 
     <!----------------------------------Main-------------------------------------->
     <main class="d-flex  flex-column " >
-      <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel">
-        <div class="carousel-inner ">
-          <div class="carousel-item active img-caru-ja" data-bs-interval="2000">
-            <img src="./assets/naruto2.png" class="img-caru-ja" alt="...">
+      <div class="video-fondo">
+        <video autoplay muted loop id="videoBackground">
+            <source src="./assets/videoNaruto.mp4" type="video/mp4">
+        </video>
+        <div class="contenido-superpuesto">
+        <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel">
+          <div class="carousel-inner ">
+            <div class="carousel-item active" data-bs-interval="3000">
+              <img src="./assets/naruto2.png" class="d-block img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item " data-bs-interval="3000">
+              <img src="./assets/naruto1.webp" class="d-block  img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./assets/naruto3.png" class="d-block  img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./assets/naruto4.png" class="d-block  img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./assets/naruto5.png" class="d-block  img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+              <img src="./assets/naruto6.png" class="d-block  img-caru-ja" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assets/naruto7.png" class="d-block  img-caru-ja" alt="...">
+            </div>
           </div>
-          <div class="carousel-item img-caru-ja " data-bs-interval="1000">
-            <img src="./assets/naruto1.webp" class="d-block  img-caru-ja" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="1000">
-            <img src="./assets/naruto3.png" class="d-block  img-caru-ja" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="1000">
-            <img src="./assets/naruto4.png" class="d-block  img-caru-ja" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="1000">
-            <img src="./assets/naruto5.png" class="d-block  img-caru-ja" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="1000">
-            <img src="./assets/naruto6.png" class="d-block  img-caru-ja" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./assets/naruto7.png" class="d-block  img-caru-ja" alt="...">
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+  
+          <div>
+              <article class="texto-fondo">
+                  <h1>Naruto</h1>
+                  <p class="p-ja">Naruto (ナルト? romanizada como NARUTO) es una serie de manga escrita e ilustrada por Masashi Kishimoto, posteriormente adaptada a una serie de anime. Narra la historia de un ninja adolescente llamado Naruto Uzumaki, cuyos padres murieron en el ataque del Zorro Demonio de Nueve Colas llamado Kurama y quien aspira a convertirse en Hokage (líder de su aldea), con el propósito de ser reconocido como alguien importante dentro de la aldea y entre sus compañeros.</p>
+              </article>
+          </div>
+  
+          <div class="navegacion-personalizada d-flex flex-column flex-md-row justify-content-around">
+            <a class=" a-1-ja bordeado-texto" href="./page/Characters.html">Characters</a>
+            <a class=" a-2-ja bordeado-texto" href="./page/clans.html">Clans</a>
+            <a class=" a-3-ja bordeado-texto" href="./page/stats.html">Stats</a>
+        </div>
+    </div>
+  </div>
 
-        <div>
-            <article>
-                <h1>Naruto</h1>
-                <p>Naruto (ナルト? romanizada como NARUTO) es una serie de manga escrita e ilustrada por Masashi Kishimoto, posteriormente adaptada a una serie de anime. Narra la historia de un ninja adolescente llamado Naruto Uzumaki, cuyos padres murieron en el ataque del Zorro Demonio de Nueve Colas llamado Kurama y quien aspira a convertirse en Hokage (líder de su aldea), con el propósito de ser reconocido como alguien importante dentro de la aldea y entre sus compañeros.</p>
-            </article>
-        </div>
 
     </main>
 
     <!----------------------------------Footer-------------------------------------->
-    <footer class="footer d-flex justify-content-around bg-dark-subtle">
+    <footer class="footer d-flex justify-content-around ">
 
         <h3> Grupo 06 - CoHort RAPPI V</h3>
 
