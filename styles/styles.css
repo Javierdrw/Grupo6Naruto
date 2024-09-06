@@ -13,8 +13,41 @@ main{
     min-height: 75dvh;
 }
 
+
 footer{
     min-height: 10dvh;
+}
+.nav-link {
+    width: 20vh;
+    height: 10vh;
+    text-align: center;
+    text-shadow: 
+        -1px -1px 0 black,   /* Sombra arriba izquierda */
+         1px -1px 0 black,   /* Sombra arriba derecha */
+        -1px  1px 0 black,   /* Sombra abajo izquierda */
+         1px  1px 0 black;   /* Sombra abajo derecha */
+    font-size: 1.5rem;
+    color: rgb(238, 229, 229); /* Color del texto */
+    padding: 10px 20px;
+    text-decoration: none;
+    background-image: url('../assets/nube.png'); /* Ruta de la imagen de la nube negra */
+    background-size: cover; /* Asegura que la imagen cubra el fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: width 0.3s, height 0.3s, transform 0.3s; /* Da un efecto de curva a los bordes */
+}
+.nav-link:hover {
+    color: yellow;
+    width: 22vh;
+    height: 12vh; /* Cambia el color del texto al hacer hover */
+    transform: matrix(1.1); /* Efecto de agrandamiento al pasar el cursor */
+}
+
+.navbar{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711);
 }
 
 .tamaño{
@@ -23,15 +56,65 @@ footer{
 }
 
 .img-caru-ja {
-    width: 85%; 
+    /* display: block; */
+    margin: auto;
+    width: 50%; 
     height: 40vh; 
+    /* object-fit: cover; */
 }
-body {
-    /* background-image: url('https://wallpapercave.com/wp/wp8617732.jpg'); */
-    background-size: cover; 
-    background-attachment: fixed; 
+.navegacion-personalizada {
+    text-align: center; /* Centra los enlaces horizontalmente */
+    margin-top: 20px; /* Agrega espacio arriba */
+}
+
+.navegacion-personalizada a {
+    width: 30vh;
+    height: 20vh;
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center;
+    color: white; /* Color del texto */
+    font-size: 20px; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Quita el subrayado */
+    margin: 0 10px; /* Espaciado entre los enlaces */
+    border-radius: 8px; /* Bordes redondeados */
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Bordeado negro al texto */
+    transition: all 0.3s ease; 
+    margin-bottom: 20px;
+}
+.a-1-ja{
+    background-image: url("../assets/imagenes-de-personajes-de-naruto.jpg");
+    background-size: cover;
+}
+
+.a-2-ja{
+    background-image: url("../assets/clanes.jpg");
+    background-size: cover;
+    background-position: 50%;
+}
+
+.a-3-ja{
+    background-image: url("../assets/Chakra-Naruto-diagram-es.svg.png");
+    background-size: cover;
+}
+.navegacion-personalizada a:hover {
+    width: 35vh;
+    height: 23vh;
+    background-color: gray; /* Cambia el color de fondo al pasar el mouse */
+    color: yellow; /* Cambia el color del texto al pasar el mouse */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+/* body {
+    background-image: url('../assets/Naruto-fondo.png');
+    background-size: cover;
     background-position: center; 
-}
+} */
+
+/* .p-ja{
+    color: white;
+} */
 .braian-card {
     margin: 15px;
     cursor: pointer;
@@ -78,13 +161,51 @@ body {
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
     text-decoration: none; 
 }
-footer {
+.footer {
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); 
     padding: 20px 0;
-    color: white; 
     text-align: center;
 }
 
 .main-juanpablo{
     display: flex;
     justify-content: center;
+}
+
+.video-fondo {
+    position: relative;
+    height: 100%; /* Hace que ocupe toda la pantalla */
+    overflow: hidden; /* Asegura que no haya desbordamiento */
+}
+
+#videoBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    opacity: 0.7; /* Opcional: para dar un efecto de transparencia */
+}
+
+.contenido-superpuesto {
+    position: relative;
+    margin-top: 20px;
+    z-index: 1;
+    /* color: white; */
+    text-align: center;
+}
+.texto-fondo {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+    color: white; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+    max-width: 90%; /* Limita el ancho del artículo (opcional) */
+    margin: 20px auto;
 }
