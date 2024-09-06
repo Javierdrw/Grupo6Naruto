@@ -42,7 +42,11 @@
         <div id="app">
             <div v-if="loading">Loading...</div>
             <div v-else class="container">
-                
+                <div>
+                    <p>Personaje con más Nature Types: {{ characterWithMostNatureTypes }}</p>
+    <p>Nature Types: <span v-for="type in mostNatureTypes" :key="type">{{ type }}</span></p>
+  
+                </div>
                 <h2 class="text-center container-fluid">Total Characters: {{ totalCharacters }}</h2>
                 <div class="container-fluid d-flex flex-row text-black text-center my-5">
                     <div class="bg bg-success w-50 ">
