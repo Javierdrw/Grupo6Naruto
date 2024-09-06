@@ -9,25 +9,24 @@
     <title>Naruto | Details</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand " href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  <a class="nav-link" href="#">Characters</a>
-                  <a class="nav-link" href="#">Clans</a>
-                  <a class="nav-link" href="#">Villages</a>
-                  <a class="nav-link" href="#">Stats</a>
-                </div>
-              </div>
+  <header id="app">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand " :href="titulo === 'Naruto' ? '#' : '../index.html'"><img class="col-sm-4 col-6 col-lg-2" :src="titulo === 'Naruto' ? './assets/logo.png' : '../assets/narut.webp'" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" :href="titulo === 'Naruto' ? './page/Characters.html': titulo === 'Characters' ? '#' : './Characters.html'">Characters</a>
+              <a class="nav-link" :href="titulo === 'Naruto' ? './page/clans.html': titulo === 'Clanes de Naruto' ? '#' : './clans.html'">Clans</a>
+              <a class="nav-link" :href="titulo === 'Naruto' ? './page/stats.html' : titulo === 'Stats' ? '#' : './stats.html'">Stats</a>
             </div>
-          </nav>
-    </header>
+          </div>
+        </div>
+      </nav>
+</header>
 
     <main class="d-flex flex-column">
         <div class="card my-3 container w-75">

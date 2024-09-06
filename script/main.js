@@ -5,26 +5,27 @@ const apiNarutoBestias = "https://narutodb.xyz/api/tailed-beast"
 const {createApp} = Vue
 
 const app = createApp({
-   data(){
-       return{
-        arrayBestias: [],
-        titulo: titulop
-       }
-   },
-   created(){
+  data(){
+      return{
+          arrayBestias: [],
+          titulo: titulop
+      }
+  },
+  created(){
+      this.traerData(apiNarutoBestias) 
 
-   },
-   methods:{
-    traerData(apiNarutoBestias){
-        fetch(apiNarutoBestias).then(response => response.json())
-          .then(data => {
-            this.arrayBestias = data.tailedBeasts
+  },
+  methods:{
+      traerData(url){
+          fetch(url)
+          .then(response => response.json()).then(data =>{
+              console.log(data.tailedBeasts);
+              
+              this.arrayBestias = data.tailedBeasts
           })
-        
-    },
-    
-   },
-   computed:{
-       
-   }
+      },
+  },
+  computed:{
+      
+  }
 }).mount('#app')
