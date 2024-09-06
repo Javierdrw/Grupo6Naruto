@@ -51,8 +51,11 @@ footer{
 }
 
 .tamaño{
-    width: 200px;
-    height: 200px;
+    width: 18rem;
+}
+
+.image-character-card{
+    height: 15rem;
 }
 
 .img-caru-ja {
