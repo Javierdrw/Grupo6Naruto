@@ -1,22 +1,23 @@
 const app = Vue.createApp({
-      data() {
-        return {
-          characters: [],
-          tallest: null,
-          heaviest: null,
-          oldest: null,
-          maleCount: 0,
-          femaleCount: 0,
-          loading: true,
-        };
-      },
-      mounted() {
-        this.fetchAllCharacters();
-      },
-      methods: {
-        fetchAllCharacters() {
-          const apiPersonajesBase = "https://narutodb.xyz/api/character/";
-          const promises = [];
+  data() {
+    return {
+      characters: [],
+      tallest: null,
+      heaviest: null,
+      oldest: null,
+      maleCount: 0,
+      femaleCount: 0,
+      loading: true,
+    };
+  },
+  mounted() {
+    this.fetchAllCharacters();
+  },
+  methods: {
+    async fetchAllCharacters() {
+      const apiPersonajesBase = "https://narutodb.xyz/api/character/";
+      const batchSize = 50; // Tamaño del lote para evitar demasiadas solicitudes simultáneas
+      let promises = [];
 
       for (let i = 0; i < 1431; i++) {
         const apiPersonajes = `${apiPersonajesBase}${i}`;
@@ -32,15 +33,16 @@ const app = Vue.createApp({
 
         promises.push(promise);
 
-        // Ejecutar las solicitudes en lotes
         if (promises.length >= batchSize) {
+          // Espera a que las promesas actuales se resuelvan antes de continuar
           await Promise.all(promises).then((characters) => {
             this.characters.push(...characters.filter((char) => char !== null));
           });
-          promises = [];
+          promises.length = 0; // Limpia el array sin perder la referencia
         }
       }
 
+      // Procesar cualquier promesa restante
       if (promises.length > 0) {
         await Promise.all(promises).then((characters) => {
           this.characters.push(...characters.filter((char) => char !== null));
@@ -102,5 +104,3 @@ const app = Vue.createApp({
 });
 
 app.mount('#app');
-
-
