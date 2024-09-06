@@ -2,6 +2,7 @@
 let titulop = document.title
 const apiNarutoBestias = "https://narutodb.xyz/api/tailed-beast"
 
+
 const {createApp} = Vue
 
 const app = createApp({
