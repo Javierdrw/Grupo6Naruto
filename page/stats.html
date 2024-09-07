@@ -12,23 +12,26 @@
 
 <body>
     <!----------------------------------Header-------------------------------------->
-    <header >
+    <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand " href="../index.html"><img class="col-sm-4 col-6 col-lg-2" src="../assets/logo.png" alt=""></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-                  <a class="nav-link" href="./Characters.html">Characters</a>
-                  <a class="nav-link" href="./clans.html">Clans</a>
-                  <a class="nav-link" href="#">Stats</a>
+                <a class="navbar-brand " href="../index.html"><img class="col-sm-4 col-6 col-lg-2"
+                        src="../assets/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link" href="./Characters.html">Characters</a>
+                        <a class="nav-link" href="./clans.html">Clans</a>
+                        <a class="nav-link" href="#">Stats</a>
+                    </div>
                 </div>
-              </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <!----------------------------------Main-------------------------------------->
@@ -42,38 +45,41 @@
         <div id="app">
             <div id="pre-loader" class="text-center text-black" v-if="loading">Loading stats...</div>
 
-            <div v-else class="container">
-              <div>
-                <p>Character with most Nature Types: {{ characterWithMostNatureTypes }}</p>
-                <p>Nature Types:</p>
-<ul>
-  <li v-for="type in mostNatureTypes" :key="type">{{ type }}</li>
-</ul>
+            <div v-else class="d-flex flex-column container align-items-center text-center">
+                <div class="bg-light w-75 bg-opacity-75 border rounded">
+                    <p>Character with most Nature Types: {{ characterWithMostNatureTypes }}</p>
+                    <p>Nature Types:</p>
+                    <ul>
+                        <li class="listStats" v-for="type in mostNatureTypes" :key="type">{{ type }}</li>
+                    </ul>
 
-              </div>
-              
-                <h2 class="text-center container-fluid">Total Characters: {{ totalCharacters }}</h2>
-                <div class="container-fluid d-flex flex-row text-black text-center my-5">
-                    <div class="bg bg-success w-50 ">
-                        <p>Total Male Characters: {{ maleCount }}</p>
-                    </div>
-                    <div class="bg bg-warning w-50">
-                        <p>Total Female Characters: {{ femaleCount }}</p>
-                    </div>
                 </div>
-                <table class="naruto-style container  table-responsive text-center">
+                <table class="naruto-style container my-5 table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th  class="table-active bg-black" colspan="2">Total Characters: {{ totalCharacters }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tablebg">
+                            <td>Total Male Characters: {{ maleCount }}</td>
+                            <td>Total Female Characters: {{ femaleCount }}</td>
+                        </tr>
+                    </table>
+                        
+                <table class="naruto-style container my-5 table-responsive text-center">
                     <thead>
                         <tr>
                             <th class="table-active bg-black" colspan="3">Characters Analysis</th>
                         </tr>
-                        <tr>
+                        <tr class="tablebg">
                             <th>Tallest Character: </th>
                             <th>Heaviest Character: </th>
                             <th>Oldest Character:</th>
                         </tr>
                     <tbody>
-                        <tr>
-                            <td > {{ tallest.name }} ({{ tallest.height }} cm)</td>
+                        <tr class="tablebg">
+                            <td> {{ tallest.name }} ({{ tallest.height }} cm)</td>
                             <td>{{ heaviest.name }} ({{ heaviest.weight }} kg)</td>
                             <td>{{ oldest.name }} ({{ oldest.age }} years)</td>
                         </tr>
@@ -99,8 +105,8 @@
         crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="../script/stats.js"></script>
-    
-    
+
+
 
 </body>
 
