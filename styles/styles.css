@@ -213,7 +213,6 @@ footer{
 
 .texto-fondo {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
-    color: white; /* Color del texto */
     padding: 20px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados (opcional) */
     max-width: 90%; /* Limita el ancho del artículo (opcional) */
@@ -260,7 +259,6 @@ td {
 
   .naruto-style {
     font-family: 'Permanent Marker', cursive;
-    font-size: 60px;
     text-align: center;
     color: #FF6600; /* Naranja más oscuro para mejor contraste */
     text-shadow: 
@@ -272,3 +270,13 @@ td {
     letter-spacing: 2px;
     padding: 20px;
   }
+
+
+body{ 
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
