@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive;
 }
 
 header{
@@ -209,3 +210,56 @@ footer{
     max-width: 90%; /* Limita el ancho del artículo (opcional) */
     margin: 20px auto;
 }
+
+
+.table {
+    width: 75%;
+    height: 80%;
+    border: solid;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th,
+tr,
+td {
+    border: solid 2px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.manuell {
+    background: #f12711; 
+}
+
+#pre-loader {
+    background: url(../assets/PlRn.gif) no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Agrega un fondo semi-transparente */
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+  .naruto-style {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 60px;
+    text-align: center;
+    color: #FF6600; /* Naranja más oscuro para mejor contraste */
+    text-shadow: 
+      2px 2px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    letter-spacing: 2px;
+    padding: 20px;
+  }
