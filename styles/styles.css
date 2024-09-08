@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive;
 }
 
 header{
@@ -13,10 +14,10 @@ main{
     min-height: 75dvh;
 }
 
-
 footer{
     min-height: 10dvh;
 }
+
 .nav-link {
     width: 20vh;
     height: 10vh;
@@ -37,6 +38,7 @@ footer{
     border-radius: 10px;
     transition: width 0.3s, height 0.3s, transform 0.3s; /* Da un efecto de curva a los bordes */
 }
+
 .nav-link:hover {
     color: yellow;
     width: 22vh;
@@ -51,8 +53,11 @@ footer{
 }
 
 .tamaño{
-    width: 200px;
-    height: 200px;
+    width: 18rem;
+}
+
+.image-character-card{
+    height: 15rem;
 }
 
 .img-caru-ja {
@@ -62,6 +67,7 @@ footer{
     height: 40vh; 
     /* object-fit: cover; */
 }
+
 .navegacion-personalizada {
     text-align: center; /* Centra los enlaces horizontalmente */
     margin-top: 20px; /* Agrega espacio arriba */
@@ -83,6 +89,7 @@ footer{
     transition: all 0.3s ease; 
     margin-bottom: 20px;
 }
+
 .a-1-ja{
     background-image: url("../assets/imagenes-de-personajes-de-naruto.jpg");
     background-size: cover;
@@ -98,6 +105,7 @@ footer{
     background-image: url("../assets/Chakra-Naruto-diagram-es.svg.png");
     background-size: cover;
 }
+
 .navegacion-personalizada a:hover {
     width: 35vh;
     height: 23vh;
@@ -118,7 +126,7 @@ footer{
 .braian-card {
     margin: 15px;
     cursor: pointer;
-    background-image: url('https://previews.123rf.com/images/tomo00/tomo001407/tomo00140700166/29822958-patr%C3%B3n-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg'); 
+    background-image: url(../assets/29822958-patrón-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg); 
     background-size: cover; 
     color: black; 
     font-weight: bold; 
@@ -127,6 +135,17 @@ footer{
     width: 400px; 
     height: 250px;
 }
+
+.card-characters {
+    cursor: pointer;
+    background-image: url(../assets/29822958-patrón-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg); 
+    background-size: cover; 
+    color: black; 
+    font-weight: bold; 
+    border: 2px solid red; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
 .braian-card-body {
     background-color: rgba(255, 255, 255, 0.7); 
     height: 100%; 
@@ -136,10 +155,12 @@ footer{
     align-items: center; 
     text-align: center; 
 }
+
 .braian-btn-custom {
     background-color: red; 
     color: white; 
 }
+
 .braian-modal-content {
     background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg'); /* Nueva URL de la imagen */
     background-size: cover; 
@@ -147,11 +168,13 @@ footer{
     font-weight: bold; 
     box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5); 
 }
+
 .braian-modal-content p, 
 .braian-modal-content h5 {
     color: orange; 
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
+
 .braian-title, .braian-back-button {
     text-align: center; 
     margin: 20px 0; 
@@ -161,17 +184,13 @@ footer{
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
     text-decoration: none; 
 }
+
 .footer {
     background: #f12711;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #f5af19, #f12711); 
     padding: 20px 0;
     text-align: center;
-}
-
-.main-juanpablo{
-    display: flex;
-    justify-content: center;
 }
 
 .video-fondo {
@@ -201,11 +220,85 @@ footer{
     /* color: white; */
     text-align: center;
 }
+
 .texto-fondo {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
-    color: white; /* Color del texto */
     padding: 20px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados (opcional) */
     max-width: 90%; /* Limita el ancho del artículo (opcional) */
     margin: 20px auto;
 }
+
+
+.table {
+    width: 75%;
+    height: 80%;
+    border: solid;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th,
+tr,
+td {
+    border: solid 2px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.tablebg {
+    background: #a1390b; 
+}
+
+#pre-loader {
+    background: url(../assets/PlRn.gif) no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Agrega un fondo semi-transparente */
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+  .naruto-style {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    color: #FF6600; /* Naranja más oscuro para mejor contraste */
+    text-shadow: 
+      2px 2px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    letter-spacing: 2px;
+    padding: 20px;
+  }
+
+.listStats{
+    list-style: none;
+}
+
+.maleCharacters {
+    background-color: #FF6600;
+    align-items: center center;
+
+}
+
+
+
+body{ 
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
