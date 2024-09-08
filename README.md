@@ -1,10 +1,49 @@
 
-# Pagina Naruto GR6
 
-A brief description of what this project does and who it's for
+#Proyecto Naruto  
+
+#Tareas Pendientes
+
+##Descripción de la Página
+Este proyecto es una página web temática basada en el universo de Naruto. La página contiene información sobre personajes, clanes y estadísticas relacionadas con el mundo de Naruto. Se están implementando características interactivas como filtros, paginación, y la opción de marcar favoritos. A continuación se detallan las tareas pendientes a realizar.
+
+#Tareas Pendientes
+
+##General
+
+[] Traducir todo el contenido a un solo idioma (falta la sección de Clanes).
+[]Crear un archivo README con la descripción completa de la página.
+[] Añadir favicon en todas las páginas.
+[] Revisar las nubes en la navbar, ya que se cortan en la parte superior.
+[] Revisar las imágenes del carrusel porque algunas se ven de baja calidad.
 
 
-## Demo
+##Personajes
+[] Añadir una imagen genérica para las cards que no tienen imagen.
+[] Implementar un botón de favoritos en las cards.
+[] Implementar un filtro por sexo y por natureType.
+[] Cambiar el color del paginado a rojo.
+[] Crear un modal para la visualización de favoritos.
+[] Unificar el background de las cards con el mismo estilo que la sección de Clanes.
 
-Insert gif or link to demo
+
+##Clanes
+[] Revisar y centrar el título de la página.
+[] Cambiar el color del hover de los títulos a rojo en lugar de azul subrayado.
+[] Añadir un margen para separar el título del navbar y las cards.
+[] Añadir imágenes en las cards de los clanes.
+[] Eliminar el botón de cerrar en las cards que no tiene funcionalidad.
+[] Traducir todo el contenido de la sección Clanes a inglés.
+[] Modificar el código de JavaScript para que retorne los 58 clanes correctamente.
+
+
+##Stats
+[] Revisar y escribir opiniones sobre los datos estadísticos.
+
+
+##Detalles
+[] Aclarar el background de las tarjetas para mejorar la visibilidad sobre la marca de agua.
+[] Unificar el background con el resto de las páginas.
+[] Ajustar el navbar, logo y enlaces para que mantengan el mismo estilo en todas las páginas.
+
 
