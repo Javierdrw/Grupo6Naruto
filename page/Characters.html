@@ -33,59 +33,62 @@
 <!----------------------------------Main-------------------------------------->
 
   <main id="app" class="p-3 d-flex row">
-    <div class="col-3 d-flex flex-column-reverse justify-content-end">
-        <!-- Mostrar el filtro aplicado -->
-       
-        <div class="col-3 d-flex flex-column-reverse justify-content-end">
+    <div class="container">
+      <!-- Filtros y barra de búsqueda en una sola fila -->
+      <div class="row mb-3">
+        <div class="col-md-3">
           <!-- Filtro por sexo -->
-          <div class="form-group mb-3">
-              <label for="sexFilter" class="form-label">Filter by Sex</label>
-              <select v-model="selectedSex" id="sexFilter" class="form-select">
-                  <option value="">All</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-              </select>
+          <div class="form-group">
+            <label for="sexFilter" class="form-label">Filter by Sex</label>
+            <select v-model="selectedSex" id="sexFilter" class="form-select">
+              <option value="">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
           </div>
-      
+        </div>
+        <div class="col-md-3">
           <!-- Filtro por natureType -->
-          <div class="form-group mb-3">
-              <label for="natureTypeFilter" class="form-label">Filter by Nature Type</label>
-              <select v-model="selectedNatureType" id="natureTypeFilter" class="form-select">
-                  <option value="">All</option>
-                  <option v-for="type in natureTypes" :key="type" :value="type">{{ type }}</option>
-              </select>
+          <div class="form-group">
+            <label for="natureTypeFilter" class="form-label">Filter by Nature Type</label>
+            <select v-model="selectedNatureType" id="natureTypeFilter" class="form-select">
+              <option value="">All</option>
+              <option v-for="type in natureTypes" :key="type" :value="type">{{ type }}</option>
+            </select>
           </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-end">
+          <!-- Barra de búsqueda -->
+          <form class="d-flex w-100" role="search">
+            <input v-model="textoBuscar" class="form-control me-2" type="search" aria-label="search" id="buscador" placeholder="Search by name">
+          </form>
+        </div>
       </div>
-      
-        <form class="d-flex p-2 align-self-center mb-3" role="search">
-            <input v-model="textoBuscar" class="form-control me-2 w-75" type="search" aria-label="search" id="buscador">
-        </form>
-    </div>
-    <div class="d-flex justify-content-center flex-column container"> 
+
+ <div class="d-flex justify-content-center flex-column">
+      <!-- Paginación ajustada -->
       <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-        <ul class="pagination">
+        <ul class="pagination pagination-sm flex-wrap">
           <li class="page-item" :class="{ disabled: page === 1 }">
             <a class="page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
           </li>
-    
           <li v-for="pageNumber in getPageNumbers()" :key="pageNumber" class="page-item" :class="{ active: page === pageNumber }">
             <a class="page-link" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
           </li>
-    
           <li class="page-item" :class="{ disabled: page === totalPages }">
             <a class="page-link" href="#" @click.prevent="changePage(page + 1)">Next</a>
           </li>
         </ul>
       </nav>
-    
+  
+      <!-- Tarjetas de personajes -->
       <div id="cards" class="d-flex flex-wrap justify-content-center gap-3">
         <div v-for="character in filteredCharacters" class="card tamaño card-characters" :key="character.id">
-          
           <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
           <img :src="getImageSrc(character.images)" 
                class="card-img-top img-fluid cardImg object-fit-cover image-character-card" 
                :alt="character.name">
-    
+  
           <div class="card-body d-flex flex-column justify-content-around text-center">
             <h6 class="card-title">Name: {{ character.name }}</h6>
             <p class="card-text">Sex: {{ character.personal.sex }}</p>
@@ -97,21 +100,8 @@
             </div>
           </div>
         </div>
-    </div>
-    
-    </div>
-    
-    <div id="cards" class="d-flex flex-wrap justify-content-center gap-3 col-9">
-
-      <div v-for="character in superFiltro" :key="character.id" class="card tamaño">
-        <img :src="character.image ? character.image[0] : '../assets/logo.png'" class="card-img-top object-fit-cover image-character-card" alt="Image not available">
-        <div class="card-body">
-          <h5 class="card-title">{{ character.name }}</h5>
-          <p class="card-text">Sex:{{ character.sex }}</p>
-          <a href="./details.html" class="btn btn-primary">Details</a>
-        </div>
       </div>
-
+    </div>
  </div>
 </main>
 
