@@ -21,7 +21,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-              <a class="nav-link" href="#">Characters</a>
+              <a class="nav-link active" href="#">Characters</a>
               <a class="nav-link" href="./clans.html">Clans</a>
               <a class="nav-link" href="./stats.html">Stats</a>
             </div>
@@ -36,12 +36,27 @@
     <div class="col-3 d-flex flex-column-reverse justify-content-end">
         <!-- Mostrar el filtro aplicado -->
        
-        <div id="checks" class="d-flex flex-column justify-content-center gap-2">
-            <div v-for="categoria in categorias" :key="categoria" class="form-check form-switch d-flex gap-2 ms-5">
-                <input v-model="categoriasSeleccionadas" class="form-check-input" type="checkbox" role="switch" :id="categoria" :value="categoria">
-                <!-- <label class="form-check-label text-light" :for="categoria">{{character.personal.sex}}</label> -->
-            </div>
-        </div>
+        <div class="col-3 d-flex flex-column-reverse justify-content-end">
+          <!-- Filtro por sexo -->
+          <div class="form-group mb-3">
+              <label for="sexFilter" class="form-label">Filter by Sex</label>
+              <select v-model="selectedSex" id="sexFilter" class="form-select">
+                  <option value="">All</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+              </select>
+          </div>
+      
+          <!-- Filtro por natureType -->
+          <div class="form-group mb-3">
+              <label for="natureTypeFilter" class="form-label">Filter by Nature Type</label>
+              <select v-model="selectedNatureType" id="natureTypeFilter" class="form-select">
+                  <option value="">All</option>
+                  <option v-for="type in natureTypes" :key="type" :value="type">{{ type }}</option>
+              </select>
+          </div>
+      </div>
+      
         <form class="d-flex p-2 align-self-center mb-3" role="search">
             <input v-model="textoBuscar" class="form-control me-2 w-75" type="search" aria-label="search" id="buscador">
         </form>
@@ -64,7 +79,7 @@
       </nav>
     
       <div id="cards" class="d-flex flex-wrap justify-content-center gap-3">
-        <div v-for="character in characters" class="card tamaño card-characters" :key="character.id">
+        <div v-for="character in filteredCharacters" class="card tamaño card-characters" :key="character.id">
           
           <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
           <img :src="getImageSrc(character.images)" 
@@ -74,7 +89,12 @@
           <div class="card-body d-flex flex-column justify-content-around text-center">
             <h6 class="card-title">Name: {{ character.name }}</h6>
             <p class="card-text">Sex: {{ character.personal.sex }}</p>
-            <a href="./details.html" class="btn braian-btn-custom">Details</a>
+            <a :href="'./details.html?id='+character.id" class="btn braian-btn-custom">Details</a>
+            <div class="btn braian-btn-custom mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+              </svg>
+            </div>
           </div>
         </div>
     </div>

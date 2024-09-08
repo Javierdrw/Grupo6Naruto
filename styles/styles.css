@@ -20,7 +20,7 @@ footer{
 
 .nav-link {
     width: 20vh;
-    height: 10vh;
+    height: 12vh;
     text-align: center;
     text-shadow: 
         -1px -1px 0 black,   /* Sombra arriba izquierda */
@@ -210,7 +210,7 @@ footer{
     z-index: -1;
     transform: translate(-50%, -50%);
     background-size: cover;
-    opacity: 0.7; /* Opcional: para dar un efecto de transparencia */
+    opacity: 0.7; /* Opciovl: para dar un efecto de transparencia */
 }
 
 .contenido-superpuesto {
