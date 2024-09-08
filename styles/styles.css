@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive;
 }
 
 header{
@@ -22,11 +23,15 @@ body {
     background-size: cover; 
     background-attachment: fixed; 
     background-position: center; 
-}
+} */
+
+/* .p-ja{
+    color: white;
+} */
 .braian-card {
     margin: 15px;
     cursor: pointer;
-    background-image: url('https://previews.123rf.com/images/tomo00/tomo001407/tomo00140700166/29822958-patr%C3%B3n-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg'); 
+    background-image: url(../assets/29822958-patrón-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg); 
     background-size: cover; 
     color: black; 
     font-weight: bold; 
@@ -35,6 +40,21 @@ body {
     height: 400px; 
     clip-path: polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
 }
+
+.card-characters {
+    cursor: pointer;
+    background-image: url(../assets/29822958-patrón-de-espiral-de-papel-tapiz-de-material-espiral-remolino.jpg); 
+    background-size: cover; 
+    color: black; 
+    font-weight: bold; 
+    border: 2px solid red; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+    width: 400px; 
+    height: 400px; 
+    clip-path: polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
+}
+
 .braian-card-body {
     background-color: rgba(255, 255, 255, 0.7); 
     height: 100%; 
@@ -44,17 +64,21 @@ body {
     align-items: center; 
     text-align: center; 
 }
+
 .braian-btn-custom {
     background-color: red; 
     color: white; 
 }
+
 .braian-modal-content {
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg');
     background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg');
     background-size: cover; 
     color: black; 
     font-weight: bold; 
     box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5); 
 }
+
 .braian-modal-content p, 
 .braian-modal-content h5 {
     color: orange; 
@@ -70,8 +94,121 @@ body {
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
     text-decoration: none; 
 }
-footer {
+
+.footer {
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711); 
     padding: 20px 0;
-    color: white; 
     text-align: center;
 }
+
+.video-fondo {
+    position: relative;
+    height: 100%; /* Hace que ocupe toda la pantalla */
+    overflow: hidden; /* Asegura que no haya desbordamiento */
+}
+
+#videoBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    opacity: 0.7; /* Opcional: para dar un efecto de transparencia */
+}
+
+.contenido-superpuesto {
+    position: relative;
+    margin-top: 20px;
+    z-index: 1;
+    /* color: white; */
+    text-align: center;
+}
+
+.texto-fondo {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados (opcional) */
+    max-width: 90%; /* Limita el ancho del artículo (opcional) */
+    margin: 20px auto;
+}
+
+
+.table {
+    width: 75%;
+    height: 80%;
+    border: solid;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th,
+tr,
+td {
+    border: solid 2px;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.tablebg {
+    background: #a1390b; 
+}
+
+#pre-loader {
+    background: url(../assets/PlRn.gif) no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Agrega un fondo semi-transparente */
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+  .naruto-style {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    color: #FF6600; /* Naranja más oscuro para mejor contraste */
+    text-shadow: 
+      2px 2px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    letter-spacing: 2px;
+    padding: 20px;
+  }
+
+.listStats{
+    list-style: none;
+}
+
+.maleCharacters {
+    background-color: #FF6600;
+    align-items: center center;
+
+}
+
+
+
+body{ 
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+

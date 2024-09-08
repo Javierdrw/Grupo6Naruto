@@ -1,3 +1,5 @@
+let titulop = document.title
+
 new Vue({
     el: '#app',
     data: {
