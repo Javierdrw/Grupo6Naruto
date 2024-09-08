@@ -18,105 +18,11 @@ footer{
     min-height: 10dvh;
 }
 
-.nav-link {
-    width: 20vh;
-    height: 10vh;
-    text-align: center;
-    text-shadow: 
-        -1px -1px 0 black,   /* Sombra arriba izquierda */
-         1px -1px 0 black,   /* Sombra arriba derecha */
-        -1px  1px 0 black,   /* Sombra abajo izquierda */
-         1px  1px 0 black;   /* Sombra abajo derecha */
-    font-size: 1.5rem;
-    color: rgb(238, 229, 229); /* Color del texto */
-    padding: 10px 20px;
-    text-decoration: none;
-    background-image: url('../assets/nube.png'); /* Ruta de la imagen de la nube negra */
-    background-size: cover; /* Asegura que la imagen cubra el fondo */
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    transition: width 0.3s, height 0.3s, transform 0.3s; /* Da un efecto de curva a los bordes */
-}
 
-.nav-link:hover {
-    color: yellow;
-    width: 22vh;
-    height: 12vh; /* Cambia el color del texto al hacer hover */
-    transform: matrix(1.1); /* Efecto de agrandamiento al pasar el cursor */
-}
-
-.navbar{
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711);
-}
-
-.tamaño{
-    width: 18rem;
-}
-
-.image-character-card{
-    height: 15rem;
-}
-
-.img-caru-ja {
-    /* display: block; */
-    margin: auto;
-    width: 50%; 
-    height: 40vh; 
-    /* object-fit: cover; */
-}
-
-.navegacion-personalizada {
-    text-align: center; /* Centra los enlaces horizontalmente */
-    margin-top: 20px; /* Agrega espacio arriba */
-}
-
-.navegacion-personalizada a {
-    width: 30vh;
-    height: 20vh;
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center;
-    color: white; /* Color del texto */
-    font-size: 20px; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    text-decoration: none; /* Quita el subrayado */
-    margin: 0 10px; /* Espaciado entre los enlaces */
-    border-radius: 8px; /* Bordes redondeados */
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Bordeado negro al texto */
-    transition: all 0.3s ease; 
-    margin-bottom: 20px;
-}
-
-.a-1-ja{
-    background-image: url("../assets/imagenes-de-personajes-de-naruto.jpg");
-    background-size: cover;
-}
-
-.a-2-ja{
-    background-image: url("../assets/clanes.jpg");
-    background-size: cover;
-    background-position: 50%;
-}
-
-.a-3-ja{
-    background-image: url("../assets/Chakra-Naruto-diagram-es.svg.png");
-    background-size: cover;
-}
-
-.navegacion-personalizada a:hover {
-    width: 35vh;
-    height: 23vh;
-    background-color: gray; /* Cambia el color de fondo al pasar el mouse */
-    color: yellow; /* Cambia el color del texto al pasar el mouse */
-    transform: scale(1.1); /* Efecto de agrandamiento */
-}
-
-/* body {
-    background-image: url('../assets/Naruto-fondo.png');
-    background-size: cover;
+body {
+    background-image: url('https://wallpapercave.com/wp/wp8617732.jpg');
+    background-size: cover; 
+    background-attachment: fixed; 
     background-position: center; 
 } */
 
@@ -130,10 +36,10 @@ footer{
     background-size: cover; 
     color: black; 
     font-weight: bold; 
-    border: 2px solid red; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
     width: 400px; 
-    height: 250px;
+    height: 400px; 
+    clip-path: polygon(50% 0%, 100% 20%, 100% 80%, 50% 100%, 0% 80%, 0% 20%);
 }
 
 .card-characters {
@@ -162,7 +68,7 @@ footer{
 }
 
 .braian-modal-content {
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg'); /* Nueva URL de la imagen */
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/583/778/556/anime-naruto-kakashi-hatake-naruto-uzumaki-wallpaper-preview.jpg');
     background-size: cover; 
     color: black; 
     font-weight: bold; 
@@ -174,7 +80,6 @@ footer{
     color: orange; 
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
-
 .braian-title, .braian-back-button {
     text-align: center; 
     margin: 20px 0; 
