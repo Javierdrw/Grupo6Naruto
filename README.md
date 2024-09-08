@@ -10,8 +10,8 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 #Tareas Pendientes
 
 ##General
-
-[] Traducir todo el contenido a un solo idioma (falta la sección de Clanes).
+[] Ajustar la barra horizontal que se genera
+[/] Traducir todo el contenido a un solo idioma (falta la sección de Clanes).
 [X] Crear un archivo README con la descripción completa de la página.
 [X] Añadir favicon en todas las páginas.
 [X] Revisar las nubes en la navbar, ya que se cortan en la parte superior.
@@ -21,8 +21,8 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 ##Personajes
 [X] Añadir una imagen genérica para las cards que no tienen imagen.
 [/] Implementar un botón de favoritos en las cards.
-[/] Implementar un filtro por sexo y por natureType.
-[] Cambiar el color del paginado a rojo.
+[/] Implementar un filtro por sexo y por natureType. (visualmente acomodado, faltaria un texto de "No result available")
+[X] Cambiar el color del paginado a rojo.
 [] Crear un modal para la visualización de favoritos.
 [X] Unificar el background de las cards con el mismo estilo que la sección de Clanes.
 
@@ -42,8 +42,9 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 
 
 ##Detalles
+[] Cambiar el codigo para que genere demas del jutsu (si es que hay errores)
 [] Aclarar el background de las tarjetas para mejorar la visibilidad sobre la marca de agua.
-[] Unificar el background con el resto de las páginas.
-[] Ajustar el navbar, logo y enlaces para que mantengan el mismo estilo en todas las páginas.
+[X] Unificar el background con el resto de las páginas.
+[X] Ajustar el navbar, logo y enlaces para que mantengan el mismo estilo en todas las páginas.
 
 

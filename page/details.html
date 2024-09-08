@@ -35,11 +35,33 @@
             <img :src="character.image || 'default.jpg'" class="card-img-top" alt="image details">
             <div class="card-body text-center">
               <h5 class="card-title">Name: {{ character.name || 'Información no disponible' }}</h5>
-              <p class="card-text">Status: {{ character.status || 'Información no disponible' }}</p>
-              <p class="card-text">Sex: {{ character.sex || 'Información no disponible' }}</p>
-              <p class="card-text">Jutsu: {{ character.jutsu || 'Información no disponible' }}</p>
-              <p class="card-text">Weight: {{ character.weight || 'Información no disponible' }}</p>
-              <p class="card-text">Unique Traits: {{ character.uniqueTraits || 'Información no disponible' }}</p>
+
+              <p>Status:</p>
+              <ol>
+                <li>{{ character.status || 'Información no disponible' }}</li>
+              </ol>
+
+              <p>Sex:</p>
+              <ol>
+                <li>{{ character.sex || 'Información no disponible' }}</li>
+              </ol>
+
+              <!-- Mostrar jutsu como lista, si es un array -->
+              <p>Jutsu:</p>
+              <ol>
+                <li v-if="character.jutsu === 'Información no disponible'">{{ character.jutsu }}</li>
+                <li v-else v-for="(jutsu, index) in character.jutsu" :key="index">{{ jutsu }}</li>
+              </ol>
+
+              <p>Weight:</p>
+              <ol>
+                <li>{{ character.weight || 'Información no disponible' }}</li>
+              </ol>
+
+              <p>Unique Traits:</p>
+              <ol>
+                <li>{{ character.uniqueTraits || 'Información no disponible' }}</li>
+              </ol>
             </div>
           </div>
         </div>
