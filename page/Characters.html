@@ -35,8 +35,8 @@
   <main id="app" class="p-3 d-flex row">
     <div class="container">
       <!-- Filtros y barra de búsqueda en una sola fila -->
-      <div class="row mb-3">
-        <div class="col-md-3">
+      <div class="row">
+        <div class="col-3  my-3">
           <!-- Filtro por sexo -->
           <div class="form-group">
             <label for="sexFilter" class="form-label">Filter by Sex</label>
@@ -47,7 +47,7 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-3  my-3">
           <!-- Filtro por natureType -->
           <div class="form-group">
             <label for="natureTypeFilter" class="form-label">Filter by Nature Type</label>
@@ -57,10 +57,10 @@
             </select>
           </div>
         </div>
-        <div class="col-md-6 d-flex align-items-end">
+        <div class="col-6 d-flex align-items-end my-3">
           <!-- Barra de búsqueda -->
           <form class="d-flex w-100" role="search">
-            <input v-model="textoBuscar" class="form-control me-2" type="search" aria-label="search" id="buscador" placeholder="Search by name">
+            <input v-model="textoBuscar" class="form-control" type="search" aria-label="search" id="buscador" placeholder="Search by name">
           </form>
         </div>
       </div>
@@ -70,13 +70,13 @@
       <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination pagination-sm flex-wrap">
           <li class="page-item" :class="{ disabled: page === 1 }">
-            <a class="page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
+            <a class="braian-btn-custom page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
           </li>
           <li v-for="pageNumber in getPageNumbers()" :key="pageNumber" class="page-item" :class="{ active: page === pageNumber }">
-            <a class="page-link" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
+            <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
           </li>
           <li class="page-item" :class="{ disabled: page === totalPages }">
-            <a class="page-link" href="#" @click.prevent="changePage(page + 1)">Next</a>
+            <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(page + 1)">Next</a>
           </li>
         </ul>
       </nav>
