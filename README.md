@@ -12,19 +12,19 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 ##General
 
 [] Traducir todo el contenido a un solo idioma (falta la sección de Clanes).
-[]Crear un archivo README con la descripción completa de la página.
-[] Añadir favicon en todas las páginas.
-[] Revisar las nubes en la navbar, ya que se cortan en la parte superior.
-[] Revisar las imágenes del carrusel porque algunas se ven de baja calidad.
+[X] Crear un archivo README con la descripción completa de la página.
+[X] Añadir favicon en todas las páginas.
+[X] Revisar las nubes en la navbar, ya que se cortan en la parte superior.
+[X] Revisar las imágenes del carrusel porque algunas se ven de baja calidad.
 
 
 ##Personajes
-[] Añadir una imagen genérica para las cards que no tienen imagen.
-[] Implementar un botón de favoritos en las cards.
-[] Implementar un filtro por sexo y por natureType.
+[X] Añadir una imagen genérica para las cards que no tienen imagen.
+[/] Implementar un botón de favoritos en las cards.
+[/] Implementar un filtro por sexo y por natureType.
 [] Cambiar el color del paginado a rojo.
 [] Crear un modal para la visualización de favoritos.
-[] Unificar el background de las cards con el mismo estilo que la sección de Clanes.
+[X] Unificar el background de las cards con el mismo estilo que la sección de Clanes.
 
 
 ##Clanes
