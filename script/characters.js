@@ -1,4 +1,5 @@
 let api = "https://narutodb.xyz/api/character"
+let apiPersonajes = "https://narutodb.xyz/api/character&page=1&limit=1431"
 
 const { createApp } = Vue;
 
