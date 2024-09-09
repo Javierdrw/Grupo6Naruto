@@ -10,7 +10,7 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 #Tareas Pendientes
 
 ##General
-[] Ajustar la barra horizontal que se genera
+[x] Ajustar la barra horizontal que se genera
 [/] Traducir todo el contenido a un solo idioma (falta la sección de Clanes).
 [X] Crear un archivo README con la descripción completa de la página.
 [X] Añadir favicon en todas las páginas.
@@ -38,7 +38,7 @@ Este proyecto es una página web temática basada en el universo de Naruto. La p
 
 
 ##Stats
-[] Revisar y escribir opiniones sobre los datos estadísticos.
+[x] Revisar y escribir opiniones sobre los datos estadísticos.
 
 
 ##Detalles

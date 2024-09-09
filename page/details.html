@@ -26,47 +26,60 @@
           </div>
         </div>
       </nav>
-</header>
-
-    <main class="">
+    </header>
+    <main>
       <div id="app" class="d-flex justify-content-center">
-        <div class="d-flex flex-column braian-card justify-content-center align-items-center h-100">
-          <div class="card my-3 container w-75">
-            <img :src="character.image || 'default.jpg'" class="card-img-top" alt="image details">
+        <div class="d-flex flex-column  justify-content-center align-items-center h-100 w-75">
+          <div class="card my-3 shadowCards text-center w-50">
+            <img :src="characterImage" class="card-img-top" alt="image details">
             <div class="card-body text-center">
-              <h5 class="card-title">Name: {{ character.name || 'Información no disponible' }}</h5>
+              <h2 class="card-title" v-if="character.name"><span class="badge rounded-pill bg-warning text-dark">Name: </span>{{ character.name }}</h2>
+              <h5 class="card-title" v-else>Name: Información no disponible</h5>
+              
+              <!-- Clan -->
+              <p v-if="character.clan"><span class="badge rounded-pill bg-warning text-dark">Clan:</span> {{ character.clan }}</p>
+              
+              <!-- Kekkei Genkai -->
+              <p v-if="character.kekkeiGenkai"><span class="badge rounded-pill bg-warning text-dark">Kekkei Genkai:</span> {{ character.kekkeiGenkai }}</p>
+              
+              <!-- Status -->
+              <p v-if="character.status"><span class="badge rounded-pill bg-warning text-dark">Status:</span> {{ character.status }}</p>
+              
+              <!-- Weight -->
+              <p v-if="character.weight"><span class="badge rounded-pill bg-warning text-dark">Weight:</span> {{ character.weight }}</p>
+          
+          <!-- Sex -->
+          <p v-if="character.sex"><span class="badge rounded-pill bg-warning text-dark">Sex:</span> {{ character.sex }}</p>
 
-              <p>Status:</p>
-              <ol>
-                <li>{{ character.status || 'Información no disponible' }}</li>
-              </ol>
-
-              <p> <span class="badge rounded-pill bg-warning text-dark">Sex:</span> </p>
-              <ol>
-                <li>{{ character.sex || 'Información no disponible' }}</li>
-              </ol>
-
-              <!-- Mostrar jutsu como lista, si es un array -->
-              <p>Jutsu:</p>
-              <ol>
-                <li v-if="character.jutsu === 'Información no disponible'">{{ character.jutsu }}</li>
-                <li v-else v-for="(jutsu, index) in character.jutsu" :key="index">{{ jutsu }}</li>
-              </ol>
-
-              <p>Weight:</p>
-              <ol>
-                <li>{{ character.weight || 'Información no disponible' }}</li>
-              </ol>
-
-              <p>Unique Traits:</p>
-              <ol>
-                <li>{{ character.uniqueTraits || 'Información no disponible' }}</li>
-              </ol>
-            </div>
+          <!-- Jutsu -->
+          <div v-if="character.jutsu && character.jutsu.length">
+            <p class="badge rounded-pill bg-danger text-dark">Jutsus:</p>
+            <ol>
+              <li class="listStats" v-for="(jutsu, index) in character.jutsu" :key="index">{{ jutsu }}</li>
+            </ol>
           </div>
+
+          <!-- Nature Type -->
+          <div v-if="character.natureType && character.natureType.length">
+            <p class="badge rounded-pill bg-success text-dark">Nature Type:</p>
+            <ol>
+              <li class="listStats mr-5" v-for="(nature, index) in character.natureType" :key="index">{{ nature }}</li>
+            </ol>
+          </div>
+
+          <!-- Unique Traits -->
+          <p v-if="character.uniqueTraits"> <span class="badge rounded-pill bg-warning text-dark">Unique Traits:</span> {{ character.uniqueTraits }}</p>
+
+
         </div>
       </div>
-    </main>
+    </div>
+  </div>
+</main>
+
+
+
+
 
     <footer class="footer d-flex justify-content-around bg-dark-subtle">
         <h3> Grupo 06 - CoHort RAPPI V</h3>
