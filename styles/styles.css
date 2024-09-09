@@ -150,6 +150,7 @@ footer{
     font-weight: bold; 
     border: 2px solid red; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+   
 }
 
 .braian-card-body {
@@ -295,4 +296,9 @@ td {
     background-color: #FF6600;
     align-items: center center;
 
+}
+
+.shadowCards{
+    background-color: rgba(255, 255, 255, 0.226);
+  
 }
