@@ -1,4 +1,5 @@
 let api = "https://narutodb.xyz/api/character"
+let apiPersonajes = "https://narutodb.xyz/api/character&page=1&limit=1431"
 
 const { createApp } = Vue;
 
@@ -15,10 +16,18 @@ const app = createApp({
             limit: 20, // Número de personajes por página
             totalPages: 1, // Número total de páginas
             visiblePages: 10, // Páginas visibles al mismo tiempo
+            selectedSex: "", // Filtro de sexo
+            selectedNatureType: "", // Filtro de Nature Type
+            natureTypes: ["Lightning Release", "Earth Release", "Fire Release",  "Wind Release","Water Release","Lava Release","Magnet Release","Boil Release","Yin Release","Yang Release"],
+            favorites: [],
         };
     },
     created() {
         this.bringPersonagePaged(this.page);
+        const storedFavorites = localStorage.getItem('favorites');
+        if (storedFavorites) {
+            this.favorites = JSON.parse(storedFavorites);
+        }
     },
     methods: {
 
@@ -28,6 +37,7 @@ const app = createApp({
                 .then((response) => response.json())
                 .then((data) => {
                     this.characters = data.characters;
+                    this.charactersBK = [...this.characters]; // Guarda una copia sin filtrar
                     this.totalCharacters = data.totalCharacters; // Total de personajes
                     this.totalPages = Math.ceil(this.totalCharacters / this.limit); // Calcula el total de páginas
                     console.log(this.characters);
@@ -58,9 +68,28 @@ const app = createApp({
             return Array.from({ length: end - start + 1 }, (_, i) => i + start);
         },
         getImageSrc(image) {
-            // Verifica si 'image' es un string antes de usar 'trim', de lo contrario retorna la imagen por defecto
-            return image !== "" ? image : '../assets/naruto-fondo-personaje.png';
+            // Verifica si la propiedad 'image' existe, si es un array y si tiene una URL válida, de lo contrario, retorna la imagen por defecto.
+            if (!image || (Array.isArray(image) && image.length === 0) || image[0] === "") {
+                return '../assets/naruto-fondo-personaje.png';
+            }
+            return image[0]; // Retorna la primera imagen del array si existe
         },
+
+        addFavorite(character) {
+            if (!this.favorites.includes(character)) {
+                this.favorites.push(character);
+                console.log("Personaje favorito:", this.favorites);
+                localStorage.setItem('favorites', JSON.stringify(this.favorites));
+                
+            }
+        },
+
+        removeFavorite(character) {
+            const index = this.favorites.indexOf(character);
+                this.favorites.splice(index, 1);
+                console.log("Personaje eliminado de favoritos:", this.favorites);
+                localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        }
         // async fetchAllCharacters() {
         //     const apiPersonajesBase = "https://narutodb.xyz/api/character/";
         //     const batchSize = 20;
@@ -94,12 +123,30 @@ const app = createApp({
         // }
     },
     computed: {
-        superFiltro() {
-            const resultado = this.charactersBK.filter((character) =>
-                character.name.toLowerCase().includes(this.textoBuscar.toLowerCase())
-            );
-            console.log("Resultado del filtro:", resultado);
-            return resultado;
+         // Filtrar personajes por texto, sexo y natureType
+         filteredCharacters() {
+            return this.charactersBK.filter(character => {
+                // Filtro de texto
+                const matchesText = character.name.toLowerCase().includes(this.textoBuscar.toLowerCase());
+                
+                // Filtro de sexo (si está seleccionado un sexo)
+                const matchesSex = this.selectedSex ? character.personal.sex === this.selectedSex : true;
+
+                // Filtro de natureType (si está seleccionado un tipo)
+                const matchesNatureType = this.selectedNatureType 
+                    ? character.natureType && character.natureType.includes(this.selectedNatureType)
+                    : true;
+
+                return matchesText && matchesSex && matchesNatureType;
+            });
         }
-    }
+    },
+    //     superFiltro() {
+    //         const resultado = this.charactersBK.filter((character) =>
+    //             character.name.toLowerCase().includes(this.textoBuscar.toLowerCase())
+    //         );
+    //         console.log("Resultado del filtro:", resultado);
+    //         return resultado;
+    //     }
+    // }
 }).mount("#app");

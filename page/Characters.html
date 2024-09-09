@@ -21,7 +21,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-              <a class="nav-link" href="#">Characters</a>
+              <a class="nav-link active" href="#">Characters</a>
               <a class="nav-link" href="./clans.html">Clans</a>
               <a class="nav-link" href="./stats.html">Stats</a>
             </div>
@@ -32,66 +32,123 @@
 
 <!----------------------------------Main-------------------------------------->
 
-  <main id="app" class="p-3 d-flex row">
-    <div class="col-3 d-flex flex-column-reverse justify-content-end">
-        <!-- Mostrar el filtro aplicado -->
-       
-        <div id="checks" class="d-flex flex-column justify-content-center gap-2">
-            <div v-for="categoria in categorias" :key="categoria" class="form-check form-switch d-flex gap-2 ms-5">
-                <input v-model="categoriasSeleccionadas" class="form-check-input" type="checkbox" role="switch" :id="categoria" :value="categoria">
-                <!-- <label class="form-check-label text-light" :for="categoria">{{character.personal.sex}}</label> -->
-            </div>
+  <main id="app" class="d-flex flex-row ">
+    <div class="container-fluid">
+      <!-- Filtros y barra de búsqueda en una sola fila -->
+      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap gap-2 container-fluid">
+        <div class="my-5">
+          <!-- Filtro por sexo -->
+          <div class="form-group">
+            
+            <select v-model="selectedSex" id="sexFilter" class="form-select" placeholder="Search by name" >
+              <option value="" disabled>Filter by Sex</option>
+              <option value="">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
         </div>
-        <form class="d-flex p-2 align-self-center mb-3" role="search">
-            <input v-model="textoBuscar" class="form-control me-2 w-75" type="search" aria-label="search" id="buscador">
-        </form>
-    </div>
-    <div class="d-flex justify-content-center flex-column container"> 
+        <div class="w-25 my-3">
+          <!-- Filtro por natureType -->
+          <div class="form-group">
+            
+            <select v-model="selectedNatureType" id="natureTypeFilter" class="form-select">
+              <option value="" disabled>Filter by Nature Type</option>
+              <option value="">All</option>
+              <option v-for="type in natureTypes" :key="type" :value="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="w-50 d-flex align-items-end my-3">
+          <!-- Barra de búsqueda -->
+          <form class="d-flex col-4" role="search">
+            <input v-model="textoBuscar" class="form-control" type="search" aria-label="search" id="buscador" placeholder="Search by name">
+          </form>
+        </div>
+         <!-- Modal Trigger Button -->
+         <button type="button" class="btn btn-primary h-25 " data-bs-toggle="modal" data-bs-target="#favoritesModal">
+          View Favorites
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade " id="favoritesModal" tabindex="-1" aria-labelledby="favoritesModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered  modal-xl">
+            <div class="modal-content ">
+              <div class="modal-header bgGeneral">
+                <h5 class="modal-title" id="favoritesModalLabel">Favorite Characters</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bgGeneral">
+                <!-- Aquí irá la lista de personajes favoritos -->
+                <div v-if="favorites.length === 0">
+                  <p>You don't have any favorite characters yet.</p>
+                </div>
+                <div v-else class="d-flex flex-wrap justify-content-center gap-3">
+                  <div v-for="character in favorites" :key="character.id" class="card tamaño card-characters">
+                    <img :src="getImageSrc(character.images)" 
+                        class="card-img-top img-fluid cardImg object-fit-cover image-character-card" 
+                        :alt="character.name">
+                    <div class="card-body d-flex flex-column justify-content-around text-center">
+                      <h6 class="card-title">Name: {{ character.name }}</h6>
+                      <p class="card-text">Sex: {{ character.personal.sex }}</p>
+                      <a :href="'./details.html?id='+character.id" class="btn braian-btn-custom">Details</a>
+                      <button @click="removeFavorite(character)" class="btn braian-btn-custom mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+ <div class="d-flex justify-content-center flex-column">
+      <!-- Paginación ajustada -->
       <nav aria-label="Page navigation example" class="d-flex justify-content-center">
-        <ul class="pagination">
+        <ul class="pagination pagination-sm flex-wrap">
           <li class="page-item" :class="{ disabled: page === 1 }">
-            <a class="page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
+            <a class="braian-btn-custom page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
           </li>
-    
           <li v-for="pageNumber in getPageNumbers()" :key="pageNumber" class="page-item" :class="{ active: page === pageNumber }">
-            <a class="page-link" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
+            <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
           </li>
-    
           <li class="page-item" :class="{ disabled: page === totalPages }">
-            <a class="page-link" href="#" @click.prevent="changePage(page + 1)">Next</a>
+            <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(page + 1)">Next</a>
           </li>
         </ul>
       </nav>
-    
-      <div id="cards" class="d-flex flex-wrap justify-content-center gap-3">
-        <div v-for="character in characters" class="card tamaño card-characters" :key="character.id">
-          
+  
+      <!-- Tarjetas de personajes -->
+      <div id="cards" class="d-flex flex-wrap mb-4 justify-content-center gap-3">
+      
+
+        <div v-if="filteredCharacters.length === 0">
+          <h1 class="">No characters found</h1>
+        </div>
+        <div v-for="character in filteredCharacters" class="card tamaño card-characters" :key="character.id">
           <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
           <img :src="getImageSrc(character.images)" 
                class="card-img-top img-fluid cardImg object-fit-cover image-character-card" 
                :alt="character.name">
-    
+  
           <div class="card-body d-flex flex-column justify-content-around text-center">
             <h6 class="card-title">Name: {{ character.name }}</h6>
             <p class="card-text">Sex: {{ character.personal.sex }}</p>
-            <a href="./details.html" class="btn braian-btn-custom">Details</a>
+            <a :href="'./details.html?id='+character.id" class="btn braian-btn-custom">Details</a>
+            <button  @click="addFavorite(character)" class="btn braian-btn-custom mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+              </svg>
+            </button>
           </div>
         </div>
-    </div>
-    
-    </div>
-    
-    <div id="cards" class="d-flex flex-wrap justify-content-center gap-3 col-9">
-
-      <div v-for="character in superFiltro" :key="character.id" class="card tamaño">
-        <img :src="character.image ? character.image[0] : '../assets/logo.png'" class="card-img-top object-fit-cover image-character-card" alt="Image not available">
-        <div class="card-body">
-          <h5 class="card-title">{{ character.name }}</h5>
-          <p class="card-text">Sex:{{ character.sex }}</p>
-          <a href="./details.html" class="btn btn-primary">Details</a>
-        </div>
       </div>
-
+    </div>
  </div>
 </main>
 
