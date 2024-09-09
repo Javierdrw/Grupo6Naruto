@@ -79,11 +79,11 @@ footer{
 }
 
 .img-caru-ja {
-    /* display: block; */
+    
     margin: auto;
     width: 50%; 
     height: 40vh; 
-    /* object-fit: cover; */
+    
 }
 
 .navegacion-personalizada {
@@ -132,11 +132,7 @@ footer{
     transform: scale(1.1); /* Efecto de agrandamiento */
 }
 
-/* body {
-    background-image: url('../assets/Naruto-fondo.png');
-    background-size: cover;
-    background-position: center; 
-} */
+
 
 
 .card-characters {
