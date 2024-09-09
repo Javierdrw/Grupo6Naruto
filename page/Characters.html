@@ -32,11 +32,11 @@
 
 <!----------------------------------Main-------------------------------------->
 
-  <main id="app" class="p-3 d-flex row">
-    <div class="container">
+  <main id="app" class="d-flex flex-row">
+    <div class="container-fluid">
       <!-- Filtros y barra de búsqueda en una sola fila -->
-      <div class="row">
-        <div class="col-3  my-3">
+      <div class="d-flex flex-row justify-content-center flex-wrap gap-2 container-fluid">
+        <div class="my-3">
           <!-- Filtro por sexo -->
           <div class="form-group">
             <label for="sexFilter" class="form-label">Filter by Sex</label>
@@ -47,7 +47,7 @@
             </select>
           </div>
         </div>
-        <div class="col-3  my-3">
+        <div class="w-25 my-3">
           <!-- Filtro por natureType -->
           <div class="form-group">
             <label for="natureTypeFilter" class="form-label">Filter by Nature Type</label>
@@ -57,7 +57,7 @@
             </select>
           </div>
         </div>
-        <div class="col-6 d-flex align-items-end my-3">
+        <div class="w-50 d-flex align-items-end my-3">
           <!-- Barra de búsqueda -->
           <form class="d-flex w-100" role="search">
             <input v-model="textoBuscar" class="form-control" type="search" aria-label="search" id="buscador" placeholder="Search by name">
@@ -82,7 +82,7 @@
       </nav>
   
       <!-- Tarjetas de personajes -->
-      <div id="cards" class="d-flex flex-wrap justify-content-center gap-3">
+      <div id="cards" class="d-flex flex-wrap mb-4 justify-content-center gap-3">
         <div v-for="character in filteredCharacters" class="card tamaño card-characters" :key="character.id">
           <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
           <img :src="getImageSrc(character.images)" 
