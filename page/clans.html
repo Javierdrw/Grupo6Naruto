@@ -11,24 +11,26 @@
 </head>
 <body>
 
-    <header >
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand " href="../index.html"><img class="col-sm-4 col-6 col-lg-2" src="../assets/logo.png" alt=""></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img class="col-sm-4 col-6 col-lg-2" src="../assets/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                   <a class="nav-link" href="./Characters.html">Characters</a>
                   <a class="nav-link active" href="#">Clans</a>
                   <a class="nav-link" href="./stats.html">Stats</a>
                 </div>
-              </div>
             </div>
-          </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
 <div id="app" class="container">
     <a href="index.html" class="braian-title">Clans Naruto BACK</a> 
@@ -39,7 +41,7 @@
                 <div class="braian-card-body">
                     <h5 class="card-title">{{ clan.name }}</h5>
                     <p class="card-text">{{ clan.shortHistory }}</p>
-                    <button class="btn braian-btn-custom" @click="fetchClanInfo(clan)">Mostrar Información</button>
+                    <button class="btn braian-btn-custom" @click="fetchClanInfo(clan)">Information</button>
                 </div>
             </div>
         </div>
@@ -50,16 +52,14 @@
         <div class="modal-dialog" role="document">
             <div class="braian-modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Información del Clan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="modalTitle">Clan Information</h5>
+                    <!-- Se ha eliminado el botón de cerrar (la "X") -->
                 </div>
                 <div class="modal-body">
-                    <p><strong>Nombre:</strong> {{ selectedClan.name }}</p>
-                    <p><strong>Historia:</strong> {{ selectedClan.history }}</p>
-                    <p><strong>Habilidades:</strong> {{ selectedClan.abilities }}</p>
-                    <p><strong>Miembros destacados:</strong> {{ selectedClan.importantMembers }}</p>
+                    <p><strong>Name :</strong> {{ selectedClan.name }}</p>
+                    <p><strong>History :</strong> {{ selectedClan.history }}</p>
+                    <p><strong>Skills :</strong> {{ selectedClan.abilities }}</p>
+                    <p><strong>Featured Members :</strong> {{ selectedClan.importantMembers }}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -76,6 +76,6 @@
 <script src="../script/clans.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<script></script>
 </body>
 </html>
