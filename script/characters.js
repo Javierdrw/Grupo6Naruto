@@ -18,11 +18,16 @@ const app = createApp({
             visiblePages: 10, // Páginas visibles al mismo tiempo
             selectedSex: "", // Filtro de sexo
             selectedNatureType: "", // Filtro de Nature Type
-            natureTypes: ["Lightning Release", "Earth Release", "Fire Release"], // Lista de nature types para el filtro
+            natureTypes: ["Lightning Release", "Earth Release", "Fire Release",  "Wind Release","Water Release","Lava Release","Magnet Release","Boil Release","Yin Release","Yang Release"],
+            favorites: [],
         };
     },
     created() {
         this.bringPersonagePaged(this.page);
+        const storedFavorites = localStorage.getItem('favorites');
+        if (storedFavorites) {
+            this.favorites = JSON.parse(storedFavorites);
+        }
     },
     methods: {
 
@@ -69,6 +74,22 @@ const app = createApp({
             }
             return image[0]; // Retorna la primera imagen del array si existe
         },
+
+        addFavorite(character) {
+            if (!this.favorites.includes(character)) {
+                this.favorites.push(character);
+                console.log("Personaje favorito:", this.favorites);
+                localStorage.setItem('favorites', JSON.stringify(this.favorites));
+                
+            }
+        },
+
+        removeFavorite(character) {
+            const index = this.favorites.indexOf(character);
+                this.favorites.splice(index, 1);
+                console.log("Personaje eliminado de favoritos:", this.favorites);
+                localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        }
         // async fetchAllCharacters() {
         //     const apiPersonajesBase = "https://narutodb.xyz/api/character/";
         //     const batchSize = 20;

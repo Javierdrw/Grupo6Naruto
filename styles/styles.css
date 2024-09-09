@@ -19,7 +19,13 @@ header{
 main{
     min-height: 75dvh;
 }
-
+.bgGeneral{
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 footer{
     min-height: 10dvh;
 }
@@ -60,6 +66,12 @@ footer{
 
 .tamaño{
     width: 18rem;
+    transition: width 0.3s, height 0.3s, transform 0.3s;
+}
+
+.tamaño:hover{
+    width: 20rem;
+    height: 20rem;
 }
 
 .image-character-card{
