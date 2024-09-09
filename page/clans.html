@@ -33,7 +33,7 @@
 </header>
 
 <div id="app" class="container">
-    <a href="index.html" class="braian-title">Clans Naruto BACK</a> 
+    <a href="../index.html" class="braian-title">BACK ←</a> 
 
     <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center" v-for="clan in clans" :key="clan.id">
@@ -53,7 +53,6 @@
             <div class="braian-modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle">Clan Information</h5>
-                    <!-- Se ha eliminado el botón de cerrar (la "X") -->
                 </div>
                 <div class="modal-body">
                     <p><strong>Name :</strong> {{ selectedClan.name }}</p>
