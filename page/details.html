@@ -63,7 +63,7 @@
           <div v-if="character.natureType && character.natureType.length">
             <p class="badge rounded-pill bg-success text-dark">Nature Type:</p>
             <ol>
-              <li class="listStats mr-5" v-for="(nature, index) in character.natureType" :key="index">{{ nature }}</li>
+              <li class="listStats" v-for="(nature, index) in character.natureType" :key="index">{{ nature }}</li>
             </ol>
           </div>
 

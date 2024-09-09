@@ -30,7 +30,6 @@ const app = createApp({
         }
     },
     methods: {
-
         // Función para traer personajes por página
         bringPersonagePaged(page) {
             fetch(`${api}?page=${page}&limit=${this.limit}`)
@@ -54,6 +53,7 @@ const app = createApp({
                 this.bringPersonagePaged(this.page); // Trae los personajes de la nueva página
             }
         },
+
         // Función para calcular el rango de páginas visibles
         getPageNumbers() {
             let start = Math.max(1, this.page - Math.floor(this.visiblePages / 2));
@@ -67,64 +67,48 @@ const app = createApp({
             // Retorna el rango de números de página a mostrar
             return Array.from({ length: end - start + 1 }, (_, i) => i + start);
         },
+
+        // Verificar si el personaje está en favoritos
+        isFavorite(character) {
+            return this.favorites.some(fav => fav.id === character.id);
+        },
+
+        // Función toggle para agregar o quitar favoritos
+        toggleFavorite(character) {
+            if (this.isFavorite(character)) {
+                this.removeFavorite(character); // Si ya es favorito, lo remueve
+            } else {
+                this.addFavorite(character); // Si no es favorito, lo agrega
+            }
+        },
+
+        // Agregar personaje a favoritos
+        addFavorite(character) {
+            if (!this.isFavorite(character)) {
+                this.favorites.push(character);
+                console.log("Personaje agregado a favoritos:", this.favorites);
+                localStorage.setItem('favorites', JSON.stringify(this.favorites));
+            }
+        },
+
+        // Eliminar personaje de favoritos
+        removeFavorite(character) {
+            this.favorites = this.favorites.filter(fav => fav.id !== character.id);
+            console.log("Personaje eliminado de favoritos:", this.favorites);
+            localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        },
+
         getImageSrc(image) {
             // Verifica si la propiedad 'image' existe, si es un array y si tiene una URL válida, de lo contrario, retorna la imagen por defecto.
             if (!image || (Array.isArray(image) && image.length === 0) || image[0] === "") {
                 return '../assets/naruto-fondo-personaje.png';
             }
             return image[0]; // Retorna la primera imagen del array si existe
-        },
-
-        addFavorite(character) {
-            if (!this.favorites.includes(character)) {
-                this.favorites.push(character);
-                console.log("Personaje favorito:", this.favorites);
-                localStorage.setItem('favorites', JSON.stringify(this.favorites));
-                
-            }
-        },
-
-        removeFavorite(character) {
-            const index = this.favorites.indexOf(character);
-                this.favorites.splice(index, 1);
-                console.log("Personaje eliminado de favoritos:", this.favorites);
-                localStorage.setItem('favorites', JSON.stringify(this.favorites));
         }
-        // async fetchAllCharacters() {
-        //     const apiPersonajesBase = "https://narutodb.xyz/api/character/";
-        //     const batchSize = 20;
-        //     let personajes = [];
-
-        //     for (let i = 0; i <= 50; i += batchSize) {
-        //         let promises = [];
-        //         for (let j = i; j < i + batchSize && j <= 50; j++) {
-        //             const apiPersonajes = `${apiPersonajesBase}${j}`;
-        //             promises.push(
-        //                 fetch(apiPersonajes)
-        //                 .then((response) => {
-        //                     if (!response.ok) {
-        //                         console.error(`Error al obtener personaje ${j}: ${response.statusText}`);
-        //                         return null;
-        //                     }
-        //                     return response.json();
-        //                 })
-        //                 .catch((error) => {
-        //                     console.error("Error en la solicitud:", error);
-        //                     return null;
-        //                 })
-        //             );
-        //         }
-        //         const resultados = await Promise.all(promises);
-        //         personajes = personajes.concat(resultados.filter(p => p && p.id && p.name && p.images && p.images.length > 0));
-        //     }
-            
-        //     this.characters = personajes;
-        //     this.charactersBK = [...this.characters];
-        // }
     },
     computed: {
-         // Filtrar personajes por texto, sexo y natureType
-         filteredCharacters() {
+        // Filtrar personajes por texto, sexo y natureType
+        filteredCharacters() {
             return this.charactersBK.filter(character => {
                 // Filtro de texto
                 const matchesText = character.name.toLowerCase().includes(this.textoBuscar.toLowerCase());
@@ -141,12 +125,5 @@ const app = createApp({
             });
         }
     },
-    //     superFiltro() {
-    //         const resultado = this.charactersBK.filter((character) =>
-    //             character.name.toLowerCase().includes(this.textoBuscar.toLowerCase())
-    //         );
-    //         console.log("Resultado del filtro:", resultado);
-    //         return resultado;
-    //     }
-    // }
+
 }).mount("#app");
