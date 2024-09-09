@@ -1,28 +1,140 @@
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     font-family: 'Permanent Marker', cursive;
+}
+
+body{ 
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header{
     min-height: 10dvh;
-
 }
 
 main{
     min-height: 75dvh;
 }
-
+.bgGeneral{
+    background-image: url('../assets/bg-edit.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 footer{
     min-height: 10dvh;
 }
 
+.nav-link {
+    width: 20vh;
+    height: 12vh;
+    text-align: center;
+    text-shadow: 
+        -1px -1px 0 black,   /* Sombra arriba izquierda */
+         1px -1px 0 black,   /* Sombra arriba derecha */
+        -1px  1px 0 black,   /* Sombra abajo izquierda */
+         1px  1px 0 black;   /* Sombra abajo derecha */
+    font-size: 1.5rem;
+    color: rgb(238, 229, 229); /* Color del texto */
+    padding: 10px 20px;
+    text-decoration: none;
+    background-image: url('../assets/nube.png'); /* Ruta de la imagen de la nube negra */
+    background-size: cover; /* Asegura que la imagen cubra el fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: width 0.3s, height 0.3s, transform 0.3s; /* Da un efecto de curva a los bordes */
+}
 
-body {
-    background-image: url('https://wallpapercave.com/wp/wp8617732.jpg');
-    background-size: cover; 
-    background-attachment: fixed; 
+.nav-link:hover {
+    color: yellow;
+    width: 22vh;
+    height: 12vh; /* Cambia el color del texto al hacer hover */
+    transform: matrix(1.1); /* Efecto de agrandamiento al pasar el cursor */
+}
+
+.navbar{
+    background: #f12711;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f5af19, #f12711);
+}
+
+.tamaño{
+    width: 18rem;
+    transition: width 0.3s, height 0.3s, transform 0.3s;
+}
+
+.tamaño:hover{
+    width: 20rem;
+    height: 20rem;
+}
+
+.image-character-card{
+    height: 15rem;
+}
+
+.img-caru-ja {
+    /* display: block; */
+    margin: auto;
+    width: 50%; 
+    height: 40vh; 
+    /* object-fit: cover; */
+}
+
+.navegacion-personalizada {
+    text-align: center; /* Centra los enlaces horizontalmente */
+    margin-top: 20px; /* Agrega espacio arriba */
+}
+
+.navegacion-personalizada a {
+    width: 30vh;
+    height: 20vh;
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center;
+    color: white; /* Color del texto */
+    font-size: 20px; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Quita el subrayado */
+    margin: 0 10px; /* Espaciado entre los enlaces */
+    border-radius: 8px; /* Bordes redondeados */
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Bordeado negro al texto */
+    transition: all 0.3s ease; 
+    margin-bottom: 20px;
+}
+
+.a-1-ja{
+    background-image: url("../assets/imagenes-de-personajes-de-naruto.jpg");
+    background-size: cover;
+}
+
+.a-2-ja{
+    background-image: url("../assets/clanes.jpg");
+    background-size: cover;
+    background-position: 50%;
+}
+
+.a-3-ja{
+    background-image: url("../assets/Chakra-Naruto-diagram-es.svg.png");
+    background-size: cover;
+}
+
+.navegacion-personalizada a:hover {
+    width: 35vh;
+    height: 23vh;
+    background-color: gray; /* Cambia el color de fondo al pasar el mouse */
+    color: yellow; /* Cambia el color del texto al pasar el mouse */
+    transform: scale(1.1); /* Efecto de agrandamiento */
+}
+
+/* body {
+    background-image: url('../assets/Naruto-fondo.png');
+    background-size: cover;
     background-position: center; 
 } */
 
@@ -50,6 +162,7 @@ body {
     font-weight: bold; 
     border: 2px solid red; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+   
 }
 
 .braian-card-body {
@@ -115,7 +228,7 @@ body {
     z-index: -1;
     transform: translate(-50%, -50%);
     background-size: cover;
-    opacity: 0.7; /* Opcional: para dar un efecto de transparencia */
+    opacity: 0.7; /* Opciovl: para dar un efecto de transparencia */
 }
 
 .contenido-superpuesto {
@@ -196,14 +309,7 @@ td {
 
 }
 
-
-
-body{ 
-    background-image: url('../assets/bg-edit.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+.shadowCards{
+    background-color: rgba(255, 255, 255, 0.226);
+  
 }
-
-
