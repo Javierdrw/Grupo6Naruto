@@ -199,8 +199,14 @@ footer{
 
 .braian-modal-content p, 
 .braian-modal-content h5 {
-    color: orange; 
+    color: white; 
+
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
+
+.braian-modal-content p{
+    font-size: 20px;
 }
 .braian-title, 
 .braian-back-button {
