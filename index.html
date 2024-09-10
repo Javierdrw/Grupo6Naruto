@@ -11,14 +11,14 @@
 <body>
     <!----------------------------------Header-------------------------------------->
     <header >
-      <nav class="navbar navbar-expand-lg p-3">
+      <nav class="navbar d-flex navbar-expand-lg">
           <div class="container-fluid">
             <a class="navbar-brand " href="#"><img class="col-sm-4 col-6 col-lg-2" src="./assets/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
+            <div class="collapse d-flex navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav d-flex align-items-center">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 <a class="nav-link" href="./page/Characters.html">Characters</a>
                 <a class="nav-link" href="./page/clans.html">Clans</a>
@@ -31,54 +31,56 @@
 
 
     <!----------------------------------Main-------------------------------------->
-    <main class="d-flex  flex-column " >
+    <main class="d-flex flex-column">
       <div class="video-fondo">
-        <video autoplay muted loop id="videoBackground">
-            <source src="./assets/videoNaruto.mp4" type="video/mp4">
-        </video>
         <div class="contenido-superpuesto">
-        <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-center" data-bs-ride="carousel">
-          <div class="carousel-inner ">
-            <div class="carousel-item active" data-bs-interval="3000">
-              <img src="./assets/naruto2.png" class="d-block img-caru-ja" alt="...">
+          <div class="d-flex flex-column mx-5">
+            <div class="tamañotitlehome d-flex align-items-center">
+              <h1 class="texto-fondo naruto-style">Welcome to the unofficial Naruto website</h1>
             </div>
-            <div class="carousel-item " data-bs-interval="3000">
-              <img src="./assets/naruto1.webp" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-              <img src="./assets/naruto3.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-              <img src="./assets/sakura.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-              <img src="./assets/naruto5.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-              <img src="./assets/naruto6.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/naruto7.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/sasuke.png" class="d-block  img-caru-ja" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-  
-          <div>
-              <article class="texto-fondo naruto-style">
-                  <h1>Naruto</h1>
-                  <p class="p-ja naruto-style">Naruto (ナルト, romanized as NARUTO) is a manga series written and illustrated by Masashi Kishimoto, which was later adapted into an anime series. It tells the story of a teenage ninja named Naruto Uzumaki, whose parents died in the attack of the Nine-Tailed Demon Fox named Kurama. Naruto aspires to become Hokage (leader of his village) with the aim of being recognized as someone important within the village and among his peers.</p>
+            <div class="d-flex mx-2 justify-content-center my-2 mx-2 gap-3">
+              <article class="d-flex flex-column Flex-md-column">
+                <section class="texto-fondo naruto-style">
+                <h2>What is Naruto</h2>
+                <div class="d-flex flex-row align-items-center">
+                  <p class="p-ja naruto-style">Naruto (ナルト, romanized as NARUTO)  is a manga series created by Masashi
+                    Kishimoto that was serialized in Weekly Shonen
+                    Jump.
+                    Met with immediate popularity following
+                    its initial publication in 1999, the series went
+                    on to receive an anime adaptation that
+                    commenced broadcasting in 2002.</p>
+                  <div>
+                    <img class="imagenhomesize object-fit-cover border rounded" src="./assets/narutoVOL1.jpg" alt="Volumen1 Naruto">
+                  </div>
+                </div>
+                </section>
+                <section class="texto-fondo naruto-style">
+                  <h2>History of Naruto</h2>
+                  <div class="d-flex flex-row align-items-center">
+                  <p class="p-ja naruto-style">Naruto tells the story of a teenage ninja named Naruto Uzumaki, whose parents died in the attack of the Nine-Tailed Demon Fox named Kurama. Naruto aspires to become Hokage (leader of his village) with the aim of being recognized as someone important within the village and among his peers.</p>
+                  <div>
+                    <img class="imagenhomesize object-fit-cover border rounded" src="./assets/NarutoVol1.0.jpeg" alt="Volumen1 Naruto">
+                  </div>
+                  </div>
+                </section>
+                
+                <section class="texto-fondo naruto-style">
+                  <h2>Total chapters</h2>
+                  <div class="d-flex flex-row align-items-center">
+                  <p class="p-ja naruto-style">
+                    The manga concluded in 2014 with a total of 700 chapters.
+                    The total number of print copies sold globally exceeds 250 million, and even now NARUTO events, games, merchandise,
+                    and more continue to be created and released for fans to enjoy—
+                    a testament to the series’ enduring influence and popularity
+                    around the world.</p>
+                  <div>
+                    <img class="imagenhomesize object-fit-cover border rounded" src="./assets/narutovol1.2.webp" alt="Volumen1 Naruto">
+                  </div>
+                  </div>
+                </section>
               </article>
+            </div>
           </div>
   
           <div class="navegacion-personalizada d-flex flex-column flex-md-row justify-content-around align-items-center">
@@ -93,7 +95,7 @@
     </main>
 
     <!----------------------------------Footer-------------------------------------->
-    <footer class="footer d-flex justify-content-around ">
+    <footer class="footer d-flex justify-content-around">
 
         <h3> Grupo 06 - CoHort RAPPI V</h3>
 
