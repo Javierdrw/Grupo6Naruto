@@ -269,6 +269,7 @@ footer{
     border: solid;
     text-align: center;
     border-collapse: collapse;
+    border: solid black;
 }
 
 th,
@@ -281,6 +282,7 @@ td {
 
 .tablebg {
     background: #a1390b; 
+    
 }
 
 #pre-loader {
