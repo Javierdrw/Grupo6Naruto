@@ -19,6 +19,11 @@ header{
 main{
     min-height: 75dvh;
 }
+
+.imagenhomesize{
+    width: 14rem;
+}
+
 .bgGeneral{
     background-image: url('../assets/bg-edit.jpg');
     background-position: center center;
@@ -26,6 +31,8 @@ main{
     background-size: cover;
     background-attachment: fixed;
 }
+
+
 footer{
     min-height: 10dvh;
 }
@@ -43,7 +50,6 @@ footer{
     color: rgb(238, 229, 229); /* Color del texto */
     padding: 10px 20px;
     text-decoration: none;
-    background-image: url('../assets/nube.png'); /* Ruta de la imagen de la nube negra */
     background-size: cover; /* Asegura que la imagen cubra el fondo */
     background-position: center;
     background-repeat: no-repeat;
@@ -53,15 +59,11 @@ footer{
 
 .nav-link:hover {
     color: yellow;
-    width: 22vh;
-    height: 12vh; /* Cambia el color del texto al hacer hover */
-    transform: matrix(1.1); /* Efecto de agrandamiento al pasar el cursor */
+    transform: scale(1.1); /* Cambia el color del texto al hacer hover */ /* Efecto de agrandamiento al pasar el cursor */
 }
 
 .navbar{
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711);
+    background-color: rgb(37, 28, 20,.5);
 }
 
 .tamaño{
@@ -87,8 +89,7 @@ footer{
 }
 
 .navegacion-personalizada {
-    text-align: center; /* Centra los enlaces horizontalmente */
-    margin-top: 20px; /* Agrega espacio arriba */
+    text-align: center; /* Centra los enlaces horizontalmente */ /* Agrega espacio arriba */
 }
 
 .navegacion-personalizada a {
@@ -125,8 +126,6 @@ footer{
 }
 
 .navegacion-personalizada a:hover {
-    width: 35vh;
-    height: 23vh;
     background-color: gray; /* Cambia el color de fondo al pasar el mouse */
     color: yellow; /* Cambia el color del texto al pasar el mouse */
     transform: scale(1.1); /* Efecto de agrandamiento */
@@ -207,11 +206,17 @@ footer{
 }
 
 .footer {
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711); 
+    background-color: rgb(37, 28, 20,.5);
+    color: white;
     padding: 20px 0;
     text-align: center;
+    text-shadow: 
+        -1px -1px 0 black,   /* Sombra arriba izquierda */
+         1px -1px 0 black,   /* Sombra arriba derecha */
+        -1px  1px 0 black,   /* Sombra abajo izquierda */
+         1px  1px 0 black;   /* Sombra abajo derecha */
+    font-size: 1.5rem;
+    color: rgb(238, 229, 229); /* Color del texto */
 }
 
 .video-fondo {
@@ -245,8 +250,7 @@ footer{
 .texto-fondo {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
     padding: 20px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados (opcional) */
-    max-width: 90%; /* Limita el ancho del artículo (opcional) */
+    border-radius: 10px; /* Bordes redondeados (opcional) *//* Limita el ancho del artículo (opcional) */
     margin: 20px auto;
 }
 
