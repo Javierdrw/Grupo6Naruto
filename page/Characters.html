@@ -111,48 +111,45 @@
       <!-- Paginación ajustada -->
       <nav aria-label="Page navigation example" class="d-flex justify-content-center">
         <ul class="pagination pagination-sm flex-wrap">
-          <li class="page-item" :class="{ disabled: page === 1 }">
-            <a class="braian-btn-custom btn-danger page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
-          </li>
-          <li v-for="pageNumber in getPageNumbers()" :key="pageNumber" class="page-item" :class="{ active: page === pageNumber }">
-            <a class="page-link braian-btn-custom bg-danger" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
-          </li>
-          <li class="page-item" :class="{ disabled: page === totalPages }">
-            <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(page + 1)">Next</a>
-          </li>
+            <li class="page-item" :class="{ disabled: page === 1 }">
+                <a class="braian-btn-custom btn-danger page-link" href="#" @click.prevent="changePage(page - 1)">Previous</a>
+            </li>
+            <li v-for="pageNumber in getPageNumbers()" :key="pageNumber" class="page-item" :class="{ active: page === pageNumber }">
+                <a class="page-link braian-btn-custom bg-danger" href="#" @click.prevent="changePage(pageNumber)">{{ pageNumber }}</a>
+            </li>
+            <li class="page-item" :class="{ disabled: page === totalPages }">
+                <a class="page-link braian-btn-custom" href="#" @click.prevent="changePage(page + 1)">Next</a>
+            </li>
         </ul>
-      </nav>
+    </nav>
   
       <!-- Tarjetas de personajes -->
       <div id="cards" class="d-flex flex-wrap mb-4 justify-content-center gap-3">
-      
-
-        <div v-if="filteredCharacters.length === 0">
-          <h1>No characters found</h1>
+        <div v-if="charactersToShow().length === 0">
+            <h1 class="">No characters found</h1>
         </div>
-        <div v-for="character in filteredCharacters" class="card tamaño card-characters" :key="character.id">
-          <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
-          <img :src="getImageSrc(character.images)" 
-               class="card-img-top img-fluid cardImg object-fit-cover image-character-card" 
-               :alt="character.name">
-  
-          <div class="card-body d-flex flex-column justify-content-around text-center">
-            <h6 class="card-title">Name: {{ character.name }}</h6>
-            <p class="card-text">Sex: {{ character.personal.sex }}</p>
-            <a :href="'./details.html?id='+character.id" class="btn braian-btn-custom">Details</a>
-            <button @click="toggleFavorite(character)" class="btn braian-btn-custom mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
-                   :class="isFavorite(character) ? 'bi-star-fill' : 'bi-star'" viewBox="0 0 16 16">
-                <path v-if="isFavorite(character)" 
-                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                <path v-else 
-                      d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-              </svg>
-            </button>
-            
-          </div>
+        <div v-for="character in charactersToShow()" class="card tamaño card-characters" :key="character.id">
+            <!-- Uso de una función para determinar si debe mostrar la imagen o la imagen por defecto -->
+            <img :src="getImageSrc(character.images)" 
+                 class="card-img-top img-fluid cardImg object-fit-cover image-character-card" 
+                 :alt="character.name">
+    
+            <div class="card-body d-flex flex-column justify-content-around text-center">
+                <h6 class="card-title">Name: {{ character.name }}</h6>
+                <p class="card-text">Sex: {{ character.personal.sex }}</p>
+                <a :href="'./details.html?id='+character.id" class="btn braian-btn-custom">Details</a>
+                <button @click="toggleFavorite(character)" class="btn braian-btn-custom mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" 
+                         :class="isFavorite(character) ? 'bi-star-fill' : 'bi-star'" viewBox="0 0 16 16">
+                        <path v-if="isFavorite(character)" 
+                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        <path v-else 
+                              d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
+    </div>
     </div>
  </div>
 </main>
