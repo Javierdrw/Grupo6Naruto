@@ -48,7 +48,10 @@
 
             <div v-else class="d-flex flex-column container align-items-center text-center">
                 <div class="bg-light w-75 bg-opacity-75 border rounded">
-                    <p>Character with most Nature Types: {{ characterWithMostNatureTypes }}</p>
+                    <h2>Character with most Nature Types</h2> 
+                    <h3>
+                    {{ characterWithMostNatureTypes }}
+                    </h3>
                     <p class="badge rounded-pill bg-danger text-dark">Nature Types:</p>
                     <ul>
                         <li class="listStats" v-for="type in mostNatureTypes" :key="type">{{ type }}</li>
@@ -62,7 +65,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="tablebg">
+                        <tr class="tablebg text-white ">
                             <td>Total Male Characters: {{ maleCount }}</td>
                             <td>Total Female Characters: {{ femaleCount }}</td>
                         </tr>
@@ -73,13 +76,13 @@
                         <tr>
                             <th class="table-active bg-black" colspan="3">Characters Analysis</th>
                         </tr>
-                        <tr class="tablebg">
+                        <tr class="tablebg text-white">
                             <th>Tallest Character: </th>
                             <th>Heaviest Character: </th>
                             <th>Oldest Character:</th>
                         </tr>
                     <tbody>
-                        <tr class="tablebg">
+                        <tr class="tablebg text-white">
                             <td> {{ tallest.name }} ({{ tallest.height }} cm)</td>
                             <td>{{ heaviest.name }} ({{ heaviest.weight }} kg)</td>
                             <td>{{ oldest.name }} ({{ oldest.age }} years)</td>
