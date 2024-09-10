@@ -39,7 +39,6 @@ const app = createApp({
                     this.charactersBK = [...this.characters]; // Guarda una copia sin filtrar
                     this.totalCharacters = data.totalCharacters; // Total de personajes
                     this.page = 1; // Reinicia a la primera página
-                    console.log(this.characters);
                 })
                 .catch((error) => {
                     console.error("Error:", error);
@@ -123,10 +122,10 @@ const app = createApp({
                 const matchesText = character.name.toLowerCase().includes(this.textoBuscar.toLowerCase());
                 
                 // Filtro de sexo (si está seleccionado un sexo)
-                const matchesSex = this.selectedSex ? character.personal.sex === this.selectedSex : true;
-                console.log(matchesSex);
-                
-
+                const sex = character.personal && character.personal.sex ? character.personal.sex : 'Desconocido';
+                const matchesSex = this.selectedSex
+                    ? sex.toLowerCase() === this.selectedSex.toLowerCase()
+                    : true;
                 // Filtro de natureType (si está seleccionado un tipo)
                 const matchesNatureType = this.selectedNatureType 
                     ? character.natureType && character.natureType.includes(this.selectedNatureType)
