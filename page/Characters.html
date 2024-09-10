@@ -20,8 +20,8 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNavAltMarkup">
             <div class="navbar-nav ">
-              <a class="nav-link active d-flex align-items-center justify-content-center" aria-current="page" href="../index.html">Home</a>
-              <a class="nav-link d-flex align-items-center justify-content-center " href="#">Characters</a>
+              <a class="nav-link d-flex align-items-center justify-content-center" aria-current="page" href="../index.html">Home</a>
+              <a class="nav-link d-flex align-items-center justify-content-center active" href="#">Characters</a>
               <a class="nav-link d-flex align-items-center justify-content-center" href="./clans.html">Clans</a>
               <a class="nav-link d-flex align-items-center justify-content-center" href="./stats.html">Stats</a>
             </div>
@@ -35,8 +35,8 @@
   <main id="app" class="d-flex flex-row ">
     <div class="container-fluid">
       <!-- Filtros y barra de búsqueda en una sola fila -->
-      <div class="d-flex flex-row justify-content-center align-items-center flex-wrap gap-2 container-fluid">
-        <div class="my-5">
+      <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center my-3  gap-2 container-fluid">
+        <div class="">
           <!-- Filtro por sexo -->
           <div class="form-group">
             
@@ -48,7 +48,7 @@
             </select>
           </div>
         </div>
-        <div class="w-25 my-3">
+        <div class="col">
           <!-- Filtro por natureType -->
           <div class="form-group">
             
@@ -60,9 +60,9 @@
           </div>
         </div>
 
-        <div class="w-50 d-flex align-items-end my-3">
+        <div class="w-50 d-flex justify-content-center">
           <!-- Barra de búsqueda -->
-          <form class="d-flex col-4" role="search">
+          <form class="d-flex col-10 col-lg-6  justify-content-center" role="search">
             <input v-model="textoBuscar" class="form-control" type="search" aria-label="search" id="buscador" placeholder="Search by name">
           </form>
         </div>

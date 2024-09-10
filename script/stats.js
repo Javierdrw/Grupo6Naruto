@@ -31,7 +31,7 @@ const app = Vue.createApp({
           this.totalCharacters = data.totalCharacters; // Total de personajes
           this.analyzeCharacters(); // Llama a la función de análisis después de obtener los personajes
           this.loading = false; // Cargar completado
-          console.log(this.characters);
+          
         })
         .catch((error) => {
           console.error("Error:", error);
