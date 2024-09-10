@@ -282,6 +282,7 @@ td {
 
 .tablebg {
     background: #a1390b; 
+    opacity: 75%;
     
 }
 
@@ -331,3 +332,11 @@ td {
   
 }
 
+
+.sasuke {
+ background-image: url();
+}
+
+.sakura {
+
+}
