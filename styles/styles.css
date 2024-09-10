@@ -57,6 +57,10 @@ footer{
     transition: width 0.3s, height 0.3s, transform 0.3s; /* Da un efecto de curva a los bordes */
 }
 
+.nav-link:active {
+    color: yellow;
+}
+
 .nav-link:hover {
     color: yellow;
     transform: scale(1.1); /* Cambia el color del texto al hacer hover */ /* Efecto de agrandamiento al pasar el cursor */
@@ -123,6 +127,10 @@ footer{
 .a-3-ja{
     background-image: url("../assets/Chakra-Naruto-diagram-es.svg.png");
     background-size: cover;
+}
+
+.p-ja {
+    font-size: 1.5rem;
 }
 
 .navegacion-personalizada a:hover {
