@@ -1,5 +1,5 @@
-let api = "https://narutodb.xyz/api/character"
-let apiPersonajes = "https://narutodb.xyz/api/character&page=1&limit=1431"
+let api = "https://narutodb.xyz/api/character";
+// Eliminado apiPersonajes ya que no se usará
 
 const { createApp } = Vue;
 
@@ -14,7 +14,7 @@ const app = createApp({
             totalCharacters: 0, // Total de personajes
             page: 1, // Página actual
             limit: 20, // Número de personajes por página
-            totalPages: 1, // Número total de páginas
+            // Eliminado totalPages del data
             visiblePages: 10, // Páginas visibles al mismo tiempo
             selectedSex: "", // Filtro de sexo
             selectedNatureType: "", // Filtro de Nature Type
@@ -23,22 +23,22 @@ const app = createApp({
         };
     },
     created() {
-        this.bringPersonagePaged(this.page);
+        this.bringAllPersonages(); // Cargar todos los personajes al iniciar
         const storedFavorites = localStorage.getItem('favorites');
         if (storedFavorites) {
             this.favorites = JSON.parse(storedFavorites);
         }
     },
     methods: {
-        // Función para traer personajes por página
-        bringPersonagePaged(page) {
-            fetch(`${api}?page=${page}&limit=${this.limit}`)
+        // Función para traer todos los personajes
+        bringAllPersonages() {
+            fetch(`${api}?page=1&limit=2000`) // Asegúrate de que el límite cubre todos los personajes
                 .then((response) => response.json())
                 .then((data) => {
                     this.characters = data.characters;
                     this.charactersBK = [...this.characters]; // Guarda una copia sin filtrar
                     this.totalCharacters = data.totalCharacters; // Total de personajes
-                    this.totalPages = Math.ceil(this.totalCharacters / this.limit); // Calcula el total de páginas
+                    this.page = 1; // Reinicia a la primera página
                     console.log(this.characters);
                 })
                 .catch((error) => {
@@ -50,24 +50,33 @@ const app = createApp({
         changePage(pageNumber) {
             if (pageNumber > 0 && pageNumber <= this.totalPages) {
                 this.page = pageNumber;
-                this.bringPersonagePaged(this.page); // Trae los personajes de la nueva página
             }
         },
 
         // Función para calcular el rango de páginas visibles
         getPageNumbers() {
+            const totalFilteredPages = this.totalPages;
+        
             let start = Math.max(1, this.page - Math.floor(this.visiblePages / 2));
-            let end = Math.min(this.totalPages, start + this.visiblePages - 1);
-
-            // Si estamos en las últimas páginas y hay menos de 10 páginas, ajusta el inicio
+            let end = Math.min(totalFilteredPages, start + this.visiblePages - 1);
+        
+            // Ajusta el inicio si estamos cerca de las últimas páginas
             if (end - start < this.visiblePages - 1) {
                 start = Math.max(1, end - this.visiblePages + 1);
             }
-
+        
             // Retorna el rango de números de página a mostrar
             return Array.from({ length: end - start + 1 }, (_, i) => i + start);
         },
-
+        
+        charactersToShow() {
+            const start = (this.page - 1) * this.limit;
+            const end = start + this.limit;
+            
+            // Devuelve solo los personajes filtrados para la página actual
+            return this.filteredCharacters.slice(start, end);
+        },
+        
         // Verificar si el personaje está en favoritos
         isFavorite(character) {
             return this.favorites.some(fav => fav.id === character.id);
@@ -115,6 +124,8 @@ const app = createApp({
                 
                 // Filtro de sexo (si está seleccionado un sexo)
                 const matchesSex = this.selectedSex ? character.personal.sex === this.selectedSex : true;
+                console.log(matchesSex);
+                
 
                 // Filtro de natureType (si está seleccionado un tipo)
                 const matchesNatureType = this.selectedNatureType 
@@ -123,6 +134,11 @@ const app = createApp({
 
                 return matchesText && matchesSex && matchesNatureType;
             });
+        },
+        
+        // Calcular el número total de páginas basado en los personajes filtrados
+        totalPages() {
+            return Math.ceil(this.filteredCharacters.length / this.limit);
         }
     },
 
